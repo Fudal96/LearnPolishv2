@@ -1,0 +1,145 @@
+.dropdown-toggle, .dropdown-item {
+  cursor: pointer;
+}
+
+.dropdown img {
+  max-height: 50px;
+  border: 2px solid white;
+  display: inline;
+}
+
+.container-mobile {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+}
+
+.nav-mob {
+  height: 80px;
+}
+
+.btn-nav-mob {
+  height: 60px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+button i {
+  transform: scale(2.2);
+}
+
+#collapseBasic {
+  z-index: 1000 !important;
+  position: relative;
+}
+
+.card-header {
+  background-color: rgb(235, 233, 233);
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 3px;
+}
+
+.right a {
+  font-size: 26px;
+  font-weight: 700;
+  margin-right: 5px;
+}
+.navbar-brand {
+  font-size: 26px;
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.btn-muted {
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right {
+
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.mobile-nav-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+i {
+  color: white;
+}
+
+.login-mobile {
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.user-photo {
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+.user-photo img {
+  height: 48px;
+}
+
+@media only screen and (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+}
+
+
+
+@media only screen and (min-width: 769px) {
+  .mobile {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 525px) {
+  .login-mobile {
+    margin: 2% !important;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .card-header {
+    padding: 12px 26px;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .right a {
+    font-size: 24px;
+  }
+  .card-header {
+    font-size: 16px;
+    padding: 10px 24px;
+  }
+}
+
+@media only screen and (max-width: 345px) {
+  .right a {
+    font-size: 22px;
+  }
+  .card-header {
+    font-size: 15px;
+    padding: 8px 20px;
+  }
+}

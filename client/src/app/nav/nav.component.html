@@ -1,0 +1,123 @@
+<div class="desktop">
+
+  <nav class="navbar navbar-expand navbar-dark fixed-top bg-primary">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">Dating App</a>
+
+
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <ng-container *ngIf="accountService.currentUser$ | async">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/members" routerLinkActive="active">Matches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/lists" routerLinkActive="active">Likes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
+            </li>
+    </ng-container>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/errors" routerLinkActive="active">Errors</a>
+    </li>
+
+        </ul>
+
+        <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
+
+          <a class="dropdown-toggle text-decoration-none" dropdownToggle>{{user.username | titlecase}}</a>
+          <div class="dropdown-menu mt-3" style=" background-color: #E83283;" *dropdownMenu>
+            <a class="dropdown-item" routerLink="/member/edit" style="font-size: 20px; font-weight: 700;">Edit Profile</a>
+            <a class="dropdown-item" style="font-size: 20px; font-weight: 700;"  (click)="logout()">Logout</a>
+          </div>
+        </div>
+
+
+        <form *ngIf="!(accountService.currentUser$ | async)" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+          <input
+          name="username"
+          [(ngModel)]="model.username"
+          class="form-control me-2"
+          type="text"
+          placeholder="Username">
+          <input
+          name="password"
+          [(ngModel)]="model.password"
+          class="form-control me-2"
+          type="password"
+          placeholder="Password">
+          <button class="btn btn-success" type="submit">Login</button>
+        </form>
+      </div>
+  </nav>
+
+  </div>
+
+
+
+
+  <!--------BELOW 768PX NAVBAR------------------->
+
+
+  <div class="mobile">
+
+
+
+
+   <nav class="bg-danger nav-mob">
+    <div class="container-mobile">
+
+      <div class="left" *ngIf="(accountService.currentUser$ | async) as user">
+        <button type="button" class="btn btn-danger btn-nav-mob" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
+      <div (click)="isCollapsed = !isCollapsed" class="well well-lg card card-block card-header" routerLink="/members">Home</div>
+      <div (click)="isCollapsed = !isCollapsed" class="well well-lg card card-block card-header" routerLink="/member/edit">Settings</div>
+      <div (click)="logout()" class="well well-lg card card-block card-header">Logout</div>
+      </div>
+    </div>
+
+      <div class="right" *ngIf="(accountService.currentUser$ | async) as user"><a class="navbar-brand" routerLink="/"><i>LearningPolish</i></a></div>
+
+
+
+  <div *ngIf="!(accountService.currentUser$ | async)" class="login-mobile">
+<div class="mobile-nav-container">
+    <div><a class="navbar-brand" routerLink="/"><i>LearningPolish</i></a></div>
+
+        <div><button type="button" class="btn btn-muted" (click)="openModal(template)"><i class="fa fa-user"></i></button></div>
+      </div>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form *ngIf="!(accountService.currentUser$ | async)" #loginForm="ngForm" class="d-flex flex-column" (ngSubmit)="login()" autocomplete="off" >
+      <input
+      name="username"
+      [(ngModel)]="model.username"
+      class="form-control mb-2"
+      type="text"
+      placeholder="Username">
+      <input
+      name="password"
+      [(ngModel)]="model.password"
+      class="form-control mb-2"
+      type="password"
+      placeholder="Password">
+      <button class="btn btn-success" type="submit" (click)="modalRef?.hide()">Login</button>
+    </form>
+
+  </div>
+</ng-template>
+      </div>
+
+  </div>
+    </nav>
+  </div>
