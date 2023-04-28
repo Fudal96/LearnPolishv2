@@ -15,6 +15,7 @@ export class NavComponent implements OnInit{
 modalRef?: BsModalRef;
 isCollapsed: boolean = true;
 model: any = {};
+registerMode = false;
 
 
 constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService, private modalService: BsModalService ) {}
@@ -34,7 +35,7 @@ constructor(public accountService: AccountService, private router: Router, priva
     this.accountService.login(this.model).subscribe({
       next: () =>
         //this.router.navigateByUrl('/members')
-        console.log('you have logged in')
+        console.log('You have logged in')
     })
   }
 
@@ -42,6 +43,17 @@ constructor(public accountService: AccountService, private router: Router, priva
     this.accountService.logout();
     this.router.navigateByUrl('/');
     this.isCollapsed = !this.isCollapsed;
+    this.model = {};
   }
+
+  registerToggle() {
+    this.registerMode = !this.registerMode
+  }
+
+
+
+  cancelRegisterMode(event: boolean) {
+  this.registerMode = event;
+}
 
 }
