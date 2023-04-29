@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AccountService } from '../_services/account.service';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit{
   registerForm: FormGroup = new FormGroup({});
   validationErrors: string[] | undefined;
 
-  constructor(private accountService: AccountService, private toastr: ToastrService, private fb: FormBuilder, private router: Router) {}
+  constructor(private accountService: AccountService, private fb: FormBuilder, private router: Router) {}
 
 
 
@@ -40,12 +40,10 @@ export class RegisterComponent implements OnInit{
   }
 
   register() {
-    //const dob = this.getDateOnly(this.registerForm.controls['dateOfBirth'].value);
-    //const values = {...this.registerForm.value, dateOfBirth: dob};
     console.log(this.registerForm.value)
     this.accountService.register(this.registerForm.value).subscribe({
       next: () => {
-        this.router.navigateByUrl('/members')
+        console.log('You have registered')
       },
       error: error => {
        this.validationErrors = error
@@ -56,5 +54,7 @@ export class RegisterComponent implements OnInit{
   cancel() {
    this.cancelRegister.emit(false);
   }
+
+
 
 }

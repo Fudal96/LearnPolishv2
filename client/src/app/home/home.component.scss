@@ -1,0 +1,30 @@
+h1 {
+  text-align: center;
+  font-size: 48px;
+}
+
+.intro {
+  margin-top: 15px;
+  width: 100vw;
+  height: 500px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 175px;
+}
+
+.intro img {
+  height: 100%;
+  width: 100%;
+}
+
+.tab-heading {
+  color: red;
+}
+
+
+@media only screen and (max-width: 346px) {
+  h1 {
+    font-size: 32px;
+  }
+}

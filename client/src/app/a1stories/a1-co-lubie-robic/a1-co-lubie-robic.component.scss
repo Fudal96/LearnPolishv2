@@ -1,0 +1,261 @@
+main {
+  margin-top: 25px;
+}
+
+.tab-wrap {
+  margin-bottom: 70px;
+}
+
+.story-content {
+  margin-top: 15px;
+  margin: auto;
+  font-size: 18px;
+}
+
+h3 {
+  padding: 13px;
+}
+h5 {
+  padding: 13px;
+}
+
+.pol {
+  font-size: 18px;
+}
+
+// Exercise 1
+
+.question-wrapper {
+  margin-bottom: 20px;
+}
+.question {
+  padding: 10px;
+}
+
+.question span {
+  background-color: #A32724;
+  padding: 6px;
+  color: white;
+  border-radius: 3px;
+}
+
+.question p {
+  padding: 6px;
+  margin-top: 5px;
+}
+
+.answers {
+  margin-top: -12px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.answers.disable {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.answers.restart {
+  pointer-events: all;
+  opacity: 1;
+  background: none;
+}
+
+.answers button {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+
+.answers button.correct {
+  background-color: green;
+  color: white;
+}
+
+.answers button.false {
+  background-color: red;
+  color: white;
+}
+
+.info-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.info-box img {
+  width: 48px;
+  height: 48px;
+}
+
+.info-box span {
+  font-size: 18px;
+}
+
+.result-box {
+  text-align: center;
+  padding: 5px;
+}
+
+.for-all {
+  display: flex;
+  flex-direction: column;
+}
+
+.restart-test {
+  display: flex;
+  justify-content: center;
+}
+
+// Exercise 2
+.exercise-two-container {
+  padding: 4px;
+}
+
+.exercise-two-container p {
+  text-align: center;
+  font-size: 13px;
+  width: 88%;
+  margin: auto;
+  margin-top: -18px;
+  margin-bottom: 20px;
+  padding: 2px 15px;
+}
+
+.sentence-container {
+  max-width: 100vw;
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sentence-container button {
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 5px 7px;
+  cursor: pointer;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.sentence-container ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.sentence-container ul.animate {
+  animation-name: ex-two-animate;
+  animation-duration: 3s;
+  pointer-events: none;
+}
+
+.words-container {
+  margin-bottom: 25px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.words-container button {
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 5px 7px;
+  cursor: pointer;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.bt.disappear {
+  display: none;
+}
+
+.correct-text {
+  font-size: 20px !important;
+  text-align: center;
+  margin-top: 15px;
+  display: none;
+}
+.correct-text.active {
+  display: block;
+}
+
+@keyframes ex-two-animate {
+  0% {
+    transform: rotate(7deg);
+  }
+  25% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
+  75% {
+    transform: rotate(-7deg);
+  } 100% {
+    transform: rotate(0deg);
+  }
+}
+
+// Exercise 3
+
+.board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.board-game {
+  width: 96%;
+}
+
+.board-game button {
+  width: 30%;
+  height: 48px;
+  margin-right: 3.33%;
+  margin-bottom: 6px;
+  border: none;
+}
+
+.board-game button.clicked {
+  background-color: rgb(46, 42, 42);
+  color: white;
+  pointer-events: none;
+}
+.board-game button.matched {
+  background-color: green;
+  color: white;
+  pointer-events: none;
+}
+.board-game button.notmatched {
+  background-color: red;
+  color: white;
+}
+.board-game button.turnoff {
+  pointer-events: none;
+}
+
+.board-game-reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-game-reset button {
+  border: none;
+  padding: 8px 16px;
+  
+}
+
+

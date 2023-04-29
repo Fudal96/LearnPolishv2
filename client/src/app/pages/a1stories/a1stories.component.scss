@@ -1,0 +1,82 @@
+.container {
+  margin-top: 40px;
+  margin-bottom: 90px;
+}
+
+.story {
+  margin-bottom: 20px;
+}
+
+.card {
+  cursor: pointer;
+  height: 100px;
+}
+
+.card-img-wrapper img {
+  height: 98px;
+  width: 90px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.card-body {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.title h3 {
+  color: black;
+}
+
+.title p {
+  font-size: 12px;
+  color: black;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fp {
+  background-color: gray;
+  color: white;
+  padding: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@media only screen and (max-width: 390px) {
+  .fp {
+    font-size: 11px;
+  }
+  .title h3 {
+    font-size: 20px;
+  }
+}
+
+
+@media only screen and (max-width: 360px) {
+  .title h3 {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .fp {
+    padding: 2px;
+  }
+}

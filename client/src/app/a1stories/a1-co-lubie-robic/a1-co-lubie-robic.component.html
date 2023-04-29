@@ -1,0 +1,291 @@
+<header class="col-12 g-header-container">
+  <div class="g-header">
+    <button routerLink="/ReadingPolish" class="btn btn-danger" style="font-weight: 700;">Home page</button>
+    <div class="g-pdf">
+      <img src="https://res.cloudinary.com/dyyonpr5j/image/upload/v1681570220/pdf-file-svgrepo-com_qrtdnk.svg">
+      <a href="./ReadingPolish/assets/test.pdf" download="A1-Co-Lubię-Robić">
+        <button class="btn btn-link g-pdf-btn">Download PDF</button>
+        <button class="btn btn-link g-pdf-btn-sm">PDF</button>
+        </a>
+    </div>
+  </div>
+</header>
+
+<!---------------------CONTENT----------------------------->
+
+<main>
+  <section class="tab-wrap">
+    <tabset class="content-tabs">
+      <tab heading="Polish">
+        <h3>Co lubię robić</h3>
+        <p class="col-10 mt-3 story-content">Chciałbym powiedzieć, jakie są moje hobby. Moim największym hobby jest malarstwo. Maluję wszystko wokół: przyrodę, zwierzęta, domy na ulicach.
+          <br><br>
+          Lubię też robić rzeczy z papieru i składać origami. Moja przyjaciółka Bětka i ja gramy w teatr. To moje drugie wielkie hobby. Od trzech lat chodzę do klubu teatralnego w każdy piątek.
+          <br><br>
+          Chociaż nie jestem uzdolniony sportowo, moim drugim hobby jest pływanie. Potrafię dość szybko pływać i lubię też nurkować. Najlepsze nurkowanie jest w morzu, gdzie można obserwować podwodne życie.
+          <br><br>
+          Bardzo lubię też jeździć na rowerze. Nie jeżdżę szybko, ale potrafię długo. Więc moim hobby jest jazda na rowerze.
+          Umiem grać na pianinie i trochę na gitarze. Bardzo lubię muzykę i taniec, to także moje wielkie hobby!
+</p>
+      </tab>
+
+      <tab heading="Polish/English">
+        <h3>Co lubię robić | What I like to do</h3>
+        <div class="col-10 mt-3 story-content">
+
+          <p class="pol">Chciałbym powiedzieć, jakie są moje hobby. Moim największym hobby jest malarstwo.</p>
+
+          <p class="eng"><i>I would like to tell you what my hobbies are. My greatest hobby is painting.</i></p>
+
+          <p class="pol">Maluję wszystko wokół: przyrodę, zwierzęta, domy na ulicach. Lubię też robić rzeczy z papieru i składać origami.</p>
+
+          <p class="eng"><i>I paint everything around: nature, animals, houses in the streets. I also like making things out of paper and folding origami.</i></p>
+
+          <p class="pol">Moja przyjaciółka Bětka i ja gramy w teatr. To moje drugie wielkie hobby. Od trzech lat chodzę do klubu teatralnego w każdy piątek.</p>
+
+          <p class="eng"><i>My friend Bětka and I play theater. This is my second big hobby. I've been going to the drama club every Friday for three years.</i></p>
+
+          <p class="pol">Chociaż nie jestem uzdolniony sportowo, moim drugim hobby jest pływanie. Potrafię dość szybko pływać i lubię też nurkować.</p>
+
+          <p class="eng"><i>Although I am not athletically gifted, my second hobby is swimming. I can swim quite fast and I also like to dive.</i></p>
+
+          <p class="pol">Najlepsze nurkowanie jest w morzu, gdzie można obserwować podwodne życie.</p>
+
+          <p class="eng"><i>The best diving is in the sea where you can observe underwater life.</i></p>
+
+          <p class="pol">Bardzo lubię też jeździć na rowerze. Nie jeżdżę szybko, ale potrafię długo. Więc moim hobby jest jazda na rowerze.</p>
+
+          <p class="eng"><i>I also really like cycling. I can't go fast, but I can go long. So my hobby is cycling.</i></p>
+
+          <p class="pol">Umiem grać na pianinie i trochę na gitarze. Bardzo lubię muzykę i taniec, to także moje wielkie hobby!</p>
+
+          <p class="eng"><i>I can play the piano and a little guitar. I really like music and dancing, it's also my great hobby!</i></p>
+
+        </div>
+      </tab>
+
+      <tab heading="Vocabulary">
+        <h3>Słownictwo</h3>
+      </tab>
+    </tabset>
+  </section>
+
+  <!---------------Exercises-------------------->
+
+  <section class="exercises-wrap">
+    <tabset class="exercises-tabs">
+      <tab heading="Exercise 1">
+        <h5>Please answer the following questions of understanding</h5>
+
+        <div class="question-wrapper">
+          <div class="question">
+            <span>Question 1:</span>
+            <p>Jakie jest największe hobby Maćka?</p>
+          </div>
+          <div #reset class="answers">
+            <button  data-answer="correct" (click)="checkAnswer($event)">A. Malarstwo</button>
+            <button data-answer="false" (click)="checkAnswer($event)">B. Koszykówka</button>
+            <button data-answer="false" (click)="checkAnswer($event)">C. Pilka nożna</button>
+            <button data-answer="false" (click)="checkAnswer($event)">D. Karate</button>
+          </div>
+        </div>
+
+        <div class="question-wrapper">
+          <div class="question">
+            <span>Question 2:</span>
+            <p>Kim jest Betka?</p>
+          </div>
+          <div #reset2 class="answers">
+            <button  data-answer="false" (click)="checkAnswer($event)">A. Mamą Maćka</button>
+            <button data-answer="false" (click)="checkAnswer($event)">B. Siostrą Maćka mamy</button>
+            <button data-answer="correct" (click)="checkAnswer($event)">C. Przyjaciółką Maćka</button>
+            <button data-answer="false" (click)="checkAnswer($event)">D. Kuzynką Maćka</button>
+          </div>
+        </div>
+
+        <div class="question-wrapper">
+          <div class="question">
+            <span>Question 3:</span>
+            <p>Na jakim instrumencie Maciek potrafi grać?</p>
+          </div>
+          <div #reset3 class="answers">
+            <button  data-answer="false" (click)="checkAnswer($event)">A. Fortepianie</button>
+            <button data-answer="false" (click)="checkAnswer($event)">B. Wiolonczeli</button>
+            <button data-answer="false" (click)="checkAnswer($event)">C. Skrzypcach</button>
+            <button data-answer="correct" (click)="checkAnswer($event)">D. Gitarze</button>
+          </div>
+        </div>
+
+        <div class="question-wrapper">
+          <div class="question">
+            <span>Question 4:</span>
+            <p>Kim jest Betka?</p>
+          </div>
+          <div #reset4 class="answers">
+            <button  data-answer="false" (click)="checkAnswer($event)">A. Mamą Maćka</button>
+            <button data-answer="false" (click)="checkAnswer($event)">B. Siostrą Maćka mamy</button>
+            <button data-answer="correct" (click)="checkAnswer($event)">C. Przyjaciółką Maćka</button>
+            <button data-answer="false" (click)="checkAnswer($event)">D. Kuzynką Maćka</button>
+          </div>
+        </div>
+
+        <div class="question-wrapper">
+          <div class="question">
+            <span>Question 5:</span>
+            <p>Kim jest Betka?</p>
+          </div>
+          <div #reset5 class="answers">
+            <button  data-answer="false" (click)="checkAnswer($event)">A. Mamą Maćka</button>
+            <button data-answer="false" (click)="checkAnswer($event)">B. Siostrą Maćka mamy</button>
+            <button data-answer="correct" (click)="checkAnswer($event)">C. Przyjaciółką Maćka</button>
+            <button data-answer="false" (click)="checkAnswer($event)">D. Kuzynką Maćka</button>
+          </div>
+        </div>
+        <hr>
+        <div class="info-box">
+        <img src="https://res.cloudinary.com/dyyonpr5j/image/upload/v1681926129/result_zmmrsk.svg">
+        <span>You have answered <strong>{{answered}}</strong> of <strong>5</strong> questions.</span>
+      </div>
+      <div class="result-box">
+        <div class="zero-points for-all" *ngIf="points === 0 && answered === 5">
+          <span>You didn't do great, maybe try again</span>
+          <span>correct answers: 0%</span>
+        </div>
+        <div class="one-points for-all" *ngIf="points === 1 && answered === 5">
+          <span>You could do much better</span>
+          <span>correct answers: 20%</span>
+        </div>
+        <div class="two-points for-all" *ngIf="points === 2 && answered === 5">
+          <span>You're not there yet</span>
+          <span>correct answers: 40%</span>
+        </div>
+        <div class="three-points for-all" *ngIf="points === 3 && answered === 5">
+          <span>You're kind of getting there</span>
+          <span>correct answers: 60%</span>
+        </div>
+        <div class="four-points for-all" *ngIf="points === 4 && answered === 5">
+          <span>You almost got it!</span>
+          <span>correct answers: 80%</span>
+        </div>
+        <div class="five-points for-all" *ngIf="points === 5 && answered === 5">
+          <span>You're the best. Gratulacje!</span>
+          <span>correct answers: 100%</span>
+        </div>
+      </div>
+
+      <div class="restart-test" *ngIf="answered === 5">
+        <button (click)="restartTest()">Restart the test</button>
+      </div>
+      </tab>
+        <!---------------Exercise 2-------------------->
+        <tab heading="Exercise 2">
+          <section class="exercise-two-container">
+            <h5>Can you put the words in the correct order so that the sentence makes sense?</h5>
+            <p>Once the order is correct you will get a Congratulations Message!</p>
+            <div class="question">
+              <span>Sentence 1:</span>
+            </div>
+          <div class="sentence-container">
+            <ul #animate>
+              <li *ngFor="let sen of sentence"><button (click)="removeWord($event)">{{sen}}</button></li>
+            </ul>
+          </div>
+          <p #correcttext class="correct-text">Brawo, jesteś najlepszy!</p>
+
+          <div #appearBack class="words-container">
+            <button class="bt" value="malarstwo" (click)="addWord($event)">malarstwo</button>
+            <button class="bt" value="największym" (click)="addWord($event)">największym</button>
+            <button class="bt" value="hobby" (click)="addWord($event)">hobby</button>
+            <button class="bt" value="jest" (click)="addWord($event)">jest</button>
+
+          </div>
+
+          <div class="question">
+            <span>Sentence 2:</span>
+          </div>
+        <div class="sentence-container">
+          <ul #animate2>
+            <li *ngFor="let sen of sentence2"><button (click)="removeWord2($event)">{{sen}}</button></li>
+          </ul>
+        </div>
+        <p #correcttext2 class="correct-text">Super!</p>
+
+        <div #appearBack2 class="words-container">
+          <button class="bt" value="rowerze" (click)="addWord2($event)">rowerze</button>
+          <button class="bt" value="lubię" (click)="addWord2($event)">lubię</button>
+          <button class="bt" value="na" (click)="addWord2($event)">na</button>
+          <button class="bt" value="jeździć" (click)="addWord2($event)">jeździć</button>
+    </div>
+
+    <div class="question">
+      <span>Sentence 3:</span>
+    </div>
+  <div class="sentence-container">
+    <ul #animate3>
+      <li *ngFor="let sen of sentence3"><button (click)="removeWord3($event)">{{sen}}</button></li>
+    </ul>
+  </div>
+  <p #correcttext3 class="correct-text">Bardzo dobrze!</p>
+
+  <div #appearBack3 class="words-container">
+    <button class="bt" value="uzdolniony" (click)="addWord3($event)">uzdolniony</button>
+    <button class="bt" value="jestem" (click)="addWord3($event)">jestem</button>
+    <button class="bt" value="sportowo" (click)="addWord3($event)">sportowo</button>
+</div>
+
+<div class="question">
+  <span>Sentence 4:</span>
+</div>
+<div class="sentence-container">
+<ul #animate4>
+  <li *ngFor="let sen of sentence4"><button (click)="removeWord4($event)">{{sen}}</button></li>
+</ul>
+</div>
+<p #correcttext4 class="correct-text">No nieźle!</p>
+
+<div #appearBack4 class="words-container">
+<button class="bt" value="rzeczy" (click)="addWord4($event)">rzeczy</button>
+<button class="bt" value="papieru" (click)="addWord4($event)">papieru</button>
+<button class="bt" value="z" (click)="addWord4($event)">z</button>
+<button class="bt" value="robić" (click)="addWord4($event)">robić</button>
+</div>
+
+<div class="question">
+  <span>Sentence 5:</span>
+</div>
+<div class="sentence-container">
+<ul #animate5>
+  <li *ngFor="let sen of sentence5"><button (click)="removeWord5($event)">{{sen}}</button></li>
+</ul>
+</div>
+<p #correcttext5 class="correct-text">Brawo Brawo Brawo!</p>
+
+<div #appearBack5 class="words-container">
+<button class="bt" value="muzykę" (click)="addWord5($event)">muzykę</button>
+<button class="bt" value="i" (click)="addWord5($event)">i</button>
+<button class="bt" value="lubię" (click)="addWord5($event)">lubię</button>
+<button class="bt" value="taniec" (click)="addWord5($event)">taniec</button>
+</div>
+
+        </section>
+        </tab>
+        <!---------------Exercise 3 -------------------->
+        <tab heading="Exercise 3">
+          <section class="exercise-two-container">
+            <h5>Can you find the matching words?</h5>
+
+            <div class="board">
+              <div #matchgame class="board-game">
+                <button *ngFor="let word of matchArray" (click)="checkMatch($event)">{{word.label}}</button>
+              </div>
+            </div>
+            <div class="board-game-reset">
+              <button [disabled]="matchedWords !== 9" (click)="resetBoardGame()">Play again</button>
+            </div>
+
+          </section>
+        </tab>
+    </tabset>
+  </section>
+
+</main>

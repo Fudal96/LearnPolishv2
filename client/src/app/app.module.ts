@@ -16,6 +16,13 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { TextInputComponent } from './text-input/text-input.component';
+import { A1storiesComponent } from './pages/a1stories/a1stories.component';
+import { A1CoLubieRobicComponent } from './a1stories/a1-co-lubie-robic/a1-co-lubie-robic.component';
+import { A2storiesComponent } from './pages/a2stories/a2stories.component';
+import { B1storiesComponent } from './pages/b1stories/b1stories.component';
+import { B2storiesComponent } from './pages/b2stories/b2stories.component';
+import { TestComponent } from './test/test.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +30,13 @@ import { TextInputComponent } from './text-input/text-input.component';
     NavComponent,
     HomeComponent,
     RegisterComponent,
-    TextInputComponent
+    TextInputComponent,
+    A1storiesComponent,
+    A1CoLubieRobicComponent,
+    A2storiesComponent,
+    B1storiesComponent,
+    B2storiesComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +44,6 @@ import { TextInputComponent } from './text-input/text-input.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    // importing ReactiveFormsModule
     ReactiveFormsModule,
     SharedModule
   ],

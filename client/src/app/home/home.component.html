@@ -1,16 +1,23 @@
-<div class="container mt-5">
-  <div *ngIf="!registerMode" style="text-align: center;">
-    
-    <div class="text-center">
-      <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">Sign Up Now</button>
-    </div>
+
+<div class="intro">
+  <h1>Learn Polish Through Stories</h1>
+  <img src="https://res.cloudinary.com/dyyonpr5j/image/upload/v1681563272/Phome_hptbho.jpg">
   </div>
 
-  <div *ngIf="registerMode" class="container">
-    <div class="row justify-content-center">
-      <div class="col-4">
-        <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
-      </div>
-    </div>
+
+  <div class="tab-wrap">
+    <tabset class="level-tabs">
+      <tab heading="Level A1">
+        <app-a1stories></app-a1stories>
+      </tab>
+      <tab heading="Level A2">
+        <app-a2stories></app-a2stories>
+      </tab>
+      <tab heading="Level B1">
+        <app-b1stories></app-b1stories>
+      </tab>
+      <tab heading="Level B2">
+        <app-b2stories></app-b2stories>
+      </tab>
+    </tabset>
   </div>
-</div>
