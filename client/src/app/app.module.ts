@@ -22,6 +22,7 @@ import { A2storiesComponent } from './pages/a2stories/a2stories.component';
 import { B1storiesComponent } from './pages/b1stories/b1stories.component';
 import { B2storiesComponent } from './pages/b2stories/b2stories.component';
 import { TestComponent } from './test/test.component';
+import { A1SpacerZPsemComponent } from './a1stories/a1-spacer-z-psem/a1-spacer-z-psem.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { TestComponent } from './test/test.component';
     A2storiesComponent,
     B1storiesComponent,
     B2storiesComponent,
-    TestComponent
+    TestComponent,
+    A1SpacerZPsemComponent
   ],
   imports: [
     BrowserModule,
