@@ -29,7 +29,7 @@ namespace API.Controllers
         [HttpPost("register")] // api/account/register - in order to access
          public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
          {
-            if (await UserExists(registerDto.Username)) return BadRequest("Username is taken");
+            if (await UserExists(registerDto.Username)) return BadRequest("Username is already taken");
 
             // we're going from ApUser to RegisterDto
            var user = _mapper.Map<AppUser>(registerDto);
@@ -40,7 +40,7 @@ namespace API.Controllers
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
 
-            if (!result.Succeeded) return BadRequest(result.Errors);
+            if (!result.Succeeded) return BadRequest("Password must have at least 1 uppercase, 1 lowercase and 1 digit ");
 
             var roleResult = await _userManager.AddToRoleAsync(user, "Member");
 

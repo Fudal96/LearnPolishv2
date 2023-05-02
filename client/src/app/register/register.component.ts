@@ -3,6 +3,7 @@ import { AccountService } from '../_services/account.service';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit{
   registerForm: FormGroup = new FormGroup({});
   validationErrors: string[] | undefined;
 
-  constructor(private accountService: AccountService, private fb: FormBuilder, private router: Router) {}
+  constructor(private accountService: AccountService, private fb: FormBuilder, private router: Router, private toastr: ToastrService) {}
 
 
 
@@ -47,6 +48,7 @@ export class RegisterComponent implements OnInit{
       },
       error: error => {
        this.validationErrors = error
+      // this.toastr.error("Error")
       }
     })
   }
