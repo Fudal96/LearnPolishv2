@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Stripe_Payments_Web_Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,11 +16,23 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Add Stripe Infrastructure
+builder.Services.AddStripeInfrastructure(builder.Configuration);
 
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
 // Configure the HTTP request pipeline.
 app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
 

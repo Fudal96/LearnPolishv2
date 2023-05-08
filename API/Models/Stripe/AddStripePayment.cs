@@ -1,0 +1,11 @@
+using System;
+namespace Stripe_Payments_Web_Api.Models.Stripe
+{
+	public record AddStripePayment(
+		string CustomerId,
+		string ReceiptEmail,
+		string Description,
+		string Currency,
+		long Amount);
+}
+

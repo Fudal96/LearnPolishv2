@@ -23,6 +23,7 @@ import { B1storiesComponent } from './pages/b1stories/b1stories.component';
 import { B2storiesComponent } from './pages/b2stories/b2stories.component';
 import { TestComponent } from './test/test.component';
 import { A1SpacerZPsemComponent } from './a1stories/a1-spacer-z-psem/a1-spacer-z-psem.component';
+import { GetPremiumComponent } from './get-premium/get-premium.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { A1SpacerZPsemComponent } from './a1stories/a1-spacer-z-psem/a1-spacer-z
     B1storiesComponent,
     B2storiesComponent,
     TestComponent,
-    A1SpacerZPsemComponent
+    A1SpacerZPsemComponent,
+    GetPremiumComponent
   ],
   imports: [
     BrowserModule,
