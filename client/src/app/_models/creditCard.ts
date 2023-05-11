@@ -1,5 +1,7 @@
 export interface creditCard {
   email: string;
-  name: string;
-  
+  cardNumber: number;
+  expirationYear: number;
+  expirationMonth: number;
+  cvc: number;
 }

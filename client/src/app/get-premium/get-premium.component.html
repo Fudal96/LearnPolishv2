@@ -1,1 +1,32 @@
-<button class="btn btn-success">Get Premium</button>
+
+<!--<form #loginForm="ngForm" class="d-flex flex-column"  autocomplete="off" >
+
+
+</form>-->
+
+
+
+
+
+<div [formGroup]="companyForm">
+  <div class="d-flex mb-5 mt-5">
+      <label for="companyName"></label>
+      <input id="email" type="text" formControlName="email" placeholder="E-mail"/>
+      <input id="name" type="text" formControlName="name" placeholder="Full Name"/>
+  </div>
+  <div formGroupName="creditCard">
+      <input id="name" type="text" formControlName="name" placeholder="Name on Card" />
+
+       <input id="cardNumber" type="text" formControlName="cardNumber" placeholder="Card Number" />
+
+       <input id="exprationYear" type="text" formControlName="expirationYear" placeholder="Expiry Year"/>
+
+      <input id="expirationMonth" type="text" formControlName="expirationMonth" placeholder="Expiry Month" />
+
+      <input id="cvc" type="text" formControlName="cvc" placeholder="CVC"/>
+    </div>
+   </div>
+
+
+  <button (click)="getPremium()" class="btn btn-success">Get Premium</button>
+

@@ -11,6 +11,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
+
 @NgModule({
   declarations: [],
   imports: [
@@ -25,7 +26,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
       type: 'line-scale-party'
     }),
     BsDatepickerModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+
   ],
   exports: [
     BsDropdownModule,
@@ -33,7 +35,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     TabsModule,
     CollapseModule,
     NgxSpinnerModule,
-    BsDatepickerModule
+    BsDatepickerModule,
   ]
 })
 export class SharedModule { }

@@ -4,6 +4,7 @@ import { environment } from 'environments/environment';
 import { BehaviorSubject, map } from 'rxjs';
 import { User } from '../_models/user';
 import { ToastrService } from 'ngx-toastr';
+import { Customer } from '../_models/customer';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,19 @@ export class AccountService {
       map(user => {
         if (user) {
           this.setCurrentUser(user);
+        }
+      })
+    )
+  }
+
+  addCustomer(model: any) {
+    return this.http.post<Customer>(this.baseUrl + 'stripe/customer/add', model).pipe(
+      map((response: Customer) => {
+        const customer = response;
+        if (customer) {
+          console.log(customer)
+        } else {
+          console.log('no customer')
         }
       })
     )

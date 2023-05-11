@@ -47,9 +47,9 @@ import { GetPremiumComponent } from './get-premium/get-premium.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule,
+    SharedModule,
     ReactiveFormsModule,
-    SharedModule
+    FormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
