@@ -5,6 +5,7 @@ import { BehaviorSubject, map } from 'rxjs';
 import { User } from '../_models/user';
 import { ToastrService } from 'ngx-toastr';
 import { Customer } from '../_models/customer';
+import { Payment } from '../_models/payment';
 
 @Injectable({
   providedIn: 'root'
@@ -44,12 +45,41 @@ export class AccountService {
       map((response: Customer) => {
         const customer = response;
         if (customer) {
-          console.log(customer)
+          const newPayment = {
+            customerId: customer.customerId,
+            recipientEmail: customer.email,
+            description: "E-learning Polish Premium Membership",
+            currency: "USD",
+            amount: 1200
+          }
+          console.log(newPayment)
+          this.addPayment(newPayment).subscribe({
+            next: () => {
+              console.log(newPayment)
+            }
+          })
         } else {
           console.log('no customer')
         }
       })
     )
+  }
+
+  addPayment(model: any) {
+    return this.http.post<Payment>(this.baseUrl + 'stripe/payment/add', model).pipe(
+      map((response: Payment) => {
+        const payment = response;
+        if (payment) {
+          console.log(payment)
+        } else {
+          console.log('no payment')
+        }
+      })
+    )
+  }
+
+  pay() {
+
   }
 
   setCurrentUser(user: User) {
