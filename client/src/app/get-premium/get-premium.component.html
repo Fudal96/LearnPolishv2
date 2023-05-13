@@ -3,16 +3,25 @@
 
 
 </form>-->
+<div [formGroup]="usernameForm">
+  <div class="mb-5 mt-5">
+      <label for="companyName"></label>
+      <input id="username" type="text" formControlName="username" placeholder="Username"/>
 
+
+
+  </div>
 
 
 
 
 <div [formGroup]="companyForm">
-  <div class="d-flex mb-5 mt-5">
+  <div class="mb-5 mt-5">
       <label for="companyName"></label>
       <input id="email" type="text" formControlName="email" placeholder="E-mail"/>
       <input id="name" type="text" formControlName="name" placeholder="Full Name"/>
+
+
   </div>
   <div formGroupName="creditCard">
       <input id="name" type="text" formControlName="name" placeholder="Name on Card" />
@@ -25,8 +34,9 @@
 
       <input id="cvc" type="text" formControlName="cvc" placeholder="CVC"/>
     </div>
-   </div>
+
 
 
   <button (click)="getPremium()" class="btn btn-success">Get Premium</button>
 
+<button (click)="test()">Test</button>

@@ -13,7 +13,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class NavComponent implements OnInit{
 modalRef?: BsModalRef;
-isCollapsed: boolean = true;
+isCollapsed: boolean = true; 
 model: any = {};
 registerMode = false;
 

@@ -6,6 +6,7 @@ import { User } from '../_models/user';
 import { ToastrService } from 'ngx-toastr';
 import { Customer } from '../_models/customer';
 import { Payment } from '../_models/payment';
+import { getUsername } from '../_models/getUsername';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,9 @@ export class AccountService {
   baseUrl = environment.apiUrl;
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
+
+   private currentUsernameSource = new BehaviorSubject<getUsername | null>(null);
+  currentUsername$ = this.currentUsernameSource.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -29,6 +33,8 @@ export class AccountService {
       })
     )
   }
+
+
 
   register(model: any) {
     return this.http.post<User>(this.baseUrl + 'account/register', model).pipe(
@@ -56,6 +62,7 @@ export class AccountService {
           this.addPayment(newPayment).subscribe({
             next: () => {
               console.log(newPayment)
+
             }
           })
         } else {
@@ -71,6 +78,11 @@ export class AccountService {
         const payment = response;
         if (payment) {
           console.log(payment)
+          this.setRole(this.currentUsernameSource.value).subscribe({
+            next: () => {
+              console.log(this.currentUsernameSource.value)
+            }
+          })
         } else {
           console.log('no payment')
         }
@@ -78,9 +90,17 @@ export class AccountService {
     )
   }
 
-  pay() {
-
+  setRole(model: any) {
+    return this.http.post<getUsername>(this.baseUrl + 'stripe/payment/add/role', model).pipe(
+      map((response: getUsername) => {
+        const username = response;
+        if (username) {
+          console.log(username)
+        }
+      })
+    )
   }
+
 
   setCurrentUser(user: User) {
     user.roles = [];
@@ -88,6 +108,11 @@ export class AccountService {
     Array.isArray(roles) ? user.roles = roles : user.roles.push(roles);
     localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSource.next(user);
+  }
+
+  setCurrentUsername(getusername: getUsername | any) {
+    this.currentUsernameSource.next(getusername);
+    console.log(this.currentUsernameSource.value)
   }
 
   logout() {
