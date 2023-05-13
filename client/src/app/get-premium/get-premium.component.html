@@ -24,9 +24,9 @@
 
   </div>
   <div formGroupName="creditCard">
-      <input id="name" type="text" formControlName="name" placeholder="Name on Card" />
+      <input id="name" class="form-control" type="text" formControlName="name" placeholder="Name on Card" />
 
-       <input id="cardNumber" type="text" formControlName="cardNumber" placeholder="Card Number" />
+      <input id="cardNumber" type="text" formControlName="cardNumber" placeholder="Card Number" />
 
        <input id="exprationYear" type="text" formControlName="expirationYear" placeholder="Expiry Year"/>
 
@@ -35,8 +35,35 @@
       <input id="cvc" type="text" formControlName="cvc" placeholder="CVC"/>
     </div>
 
+   <!-- <div class="row mb-3">
+      <div class="col-12">
+        <div class="form-floating">
+          <div class="form-control" #cardNumber></div>
+          <label>Card Number</label>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-floating">
+          <div class="form-control" #cardExpiry></div>
+          <label>Card Expiry</label>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-floating">
+          <div class="form-control" #cardCvc></div>
+          <label>Card Cvc</label>
+        </div>
+      </div>
+    </div> -->
 
 
-  <button (click)="getPremium()" class="btn btn-success">Get Premium</button>
 
-<button (click)="test()">Test</button>
+  <button (click)="getPremium()" class="btn btn-success mb-5">Get Premium</button>
+
+  <button (click)="test()">TEST</button>
+  <button (click)="test1()">TEST1</button>
+
+
+
+
+

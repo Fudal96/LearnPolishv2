@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { User } from '../_models/user';
 import { ToastrService } from 'ngx-toastr';
 import { Customer } from '../_models/customer';
 import { Payment } from '../_models/payment';
 import { getUsername } from '../_models/getUsername';
+import { IMemberShipPlan, ISession } from '../_models/IMemberships';
+
+declare const Stripe: any;
 
 @Injectable({
   providedIn: 'root'
@@ -90,6 +93,8 @@ export class AccountService {
     )
   }
 
+
+
   setRole(model: any) {
     return this.http.post<getUsername>(this.baseUrl + 'stripe/payment/add/role', model).pipe(
       map((response: getUsername) => {
@@ -99,6 +104,27 @@ export class AccountService {
         }
       })
     )
+  }
+
+
+  requestMemberSession(model: any) {
+    return this.http.post<ISession>(this.baseUrl + 'payments/create-checkout-session', model).pipe(
+      map((response: ISession) => {
+        const session = response;
+        if (session) {
+          console.log(session)
+          this.redirectToCheckout(session.sessionId);
+        }
+      })
+    )
+  }
+
+  redirectToCheckout(sessionId: string) {
+    const stripe = Stripe('pk_test_51N1AX9GrXwZ3ORKWZJUtJESKPOPXExxpoxr7FYUyvtLu5iG2NQ9qk2rjJ9h8K7Z4aTK821QGfeMnrWR6uHpl0NPa00RilzBLPP');
+
+    stripe.redirectToCheckout({
+      sessionId: sessionId,
+    });
   }
 
 
