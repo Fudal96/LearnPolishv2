@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { BehaviorSubject, Observable, map, of } from 'rxjs';
@@ -7,9 +7,10 @@ import { ToastrService } from 'ngx-toastr';
 import { Customer } from '../_models/customer';
 import { Payment } from '../_models/payment';
 import { getUsername } from '../_models/getUsername';
-import { IMemberShipPlan, ISession } from '../_models/IMemberships';
+import { ICustomerPortal, IMemberShipPlan, ISession } from '../_models/IMemberships';
 
 declare const Stripe: any;
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,9 @@ declare const Stripe: any;
 // AccountService is responsible for making an http requests from a client to a server 'account/login' account is the name of our controller
 export class AccountService {
   baseUrl = environment.apiUrl;
+
+
+
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
 
@@ -49,7 +53,7 @@ export class AccountService {
     )
   }
 
-  addCustomer(model: any) {
+  /*addCustomer(model: any) {
     return this.http.post<Customer>(this.baseUrl + 'stripe/customer/add', model).pipe(
       map((response: Customer) => {
         const customer = response;
@@ -91,7 +95,7 @@ export class AccountService {
         }
       })
     )
-  }
+  } */
 
 
 
@@ -125,6 +129,27 @@ export class AccountService {
     stripe.redirectToCheckout({
       sessionId: sessionId,
     });
+  }
+
+  redirectToCustomerPortal(model: any) {
+
+    this.http
+      .post<ICustomerPortal>(
+        this.baseUrl + 'payments/customer-portal', model, this.getHttpOptions()
+      )
+      .subscribe((data) => {
+        window.location.href = data.url;
+      });
+  }
+
+  getHttpOptions() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+
+    return httpOptions;
   }
 
 

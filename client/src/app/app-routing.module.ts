@@ -9,6 +9,7 @@ import { TestComponent } from './test/test.component';
 import { A1SpacerZPsemComponent } from './a1stories/a1-spacer-z-psem/a1-spacer-z-psem.component';
 import { AdminGuard } from './_guards/admin.guard';
 import { GetPremiumComponent } from './get-premium/get-premium.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'a1-co-lubie-robic', component: A1CoLubieRobicComponent},
   {path: 'test', component: TestComponent},
   {path: 'get-premium', component: GetPremiumComponent},
+  {path: 'settings', component: SettingsComponent},
   {path: '',
     runGuardsAndResolvers: 'always',
     canActivate: [AdminGuard],

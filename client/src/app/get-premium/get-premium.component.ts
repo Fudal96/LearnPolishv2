@@ -77,7 +77,7 @@ cardCvc?: StripeCardCvcElement; */
 
 
 
-  getPremium() {
+  /*getPremium() {
    this.accountService.addCustomer((this.companyForm.value)).subscribe({
     next: () => {
         console.log(this.companyForm.value)
@@ -90,7 +90,7 @@ cardCvc?: StripeCardCvcElement; */
 
       }
     })
-  }
+  }*/
 
 
 
