@@ -8,7 +8,7 @@ import { getUsername } from '../_models/getUsername';
 import { Stripe, StripeCardCvcElement, StripeCardExpiryElement, StripeCardNumberElement, loadStripe } from '@stripe/stripe-js';
 
 const PriceId = {
-    priceId: 'price_1N7MW7GrXwZ3ORKWqqdWZlp7'
+    priceId: 'price_1N8n7IGrXwZ3ORKWTK5sTwng'
   }
 
 
@@ -20,31 +20,7 @@ const PriceId = {
 })
 export class GetPremiumComponent implements OnInit{
 getusername: getUsername | any;
-/*
-@ViewChild('cardNumber') cardNumberElement?: ElementRef;
-@ViewChild('cardExpiry') cardExpiryElement?: ElementRef;
-@ViewChild('cardCvc') cardCvcElement?: ElementRef;
-stripe: Stripe | null = null;
-cardNumber?: StripeCardNumberElement | any;
-cardExpiry?: StripeCardExpiryElement;
-cardCvc?: StripeCardCvcElement; */
 
-
-  companyForm = this.fb.group({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    name: new FormControl('', [Validators.required]),
-    creditCard: this.fb.group({
-      name: new FormControl('', [Validators.required]),
-      cardNumber: new FormControl('', [Validators.required]),
-      expirationYear: new FormControl('', [Validators.required]),
-      expirationMonth: new FormControl('', [Validators.required]),
-      cvc: new FormControl('', [Validators.required]),
-    }),
-  })
-
-  usernameForm = this.fb.group({
-    username: new FormControl('', [Validators.required]),
-  })
 
 
 
@@ -94,11 +70,11 @@ cardCvc?: StripeCardCvcElement; */
 
 
 
-  getCurrentUsername() {
+ /* getCurrentUsername() {
     console.log(this.usernameForm.value)
     const currentusername = this.usernameForm.value
     this.accountService.setCurrentUsername(currentusername)
-  }
+  }*/
 
 
 
@@ -111,9 +87,38 @@ cardCvc?: StripeCardCvcElement; */
   }
 
   test1() {
-    console.log(PriceId.priceId)
-    console.log(PriceId)
+
   }
 
 
 }
+
+
+
+
+
+/*
+@ViewChild('cardNumber') cardNumberElement?: ElementRef;
+@ViewChild('cardExpiry') cardExpiryElement?: ElementRef;
+@ViewChild('cardCvc') cardCvcElement?: ElementRef;
+stripe: Stripe | null = null;
+cardNumber?: StripeCardNumberElement | any;
+cardExpiry?: StripeCardExpiryElement;
+cardCvc?: StripeCardCvcElement; */
+
+
+ /* companyForm = this.fb.group({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    name: new FormControl('', [Validators.required]),
+    creditCard: this.fb.group({
+      name: new FormControl('', [Validators.required]),
+      cardNumber: new FormControl('', [Validators.required]),
+      expirationYear: new FormControl('', [Validators.required]),
+      expirationMonth: new FormControl('', [Validators.required]),
+      cvc: new FormControl('', [Validators.required]),
+    }),
+  })
+
+  usernameForm = this.fb.group({
+    username: new FormControl('', [Validators.required]),
+  }) */

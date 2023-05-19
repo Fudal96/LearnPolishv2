@@ -25,6 +25,7 @@ import { TestComponent } from './test/test.component';
 import { A1SpacerZPsemComponent } from './a1stories/a1-spacer-z-psem/a1-spacer-z-psem.component';
 import { GetPremiumComponent } from './get-premium/get-premium.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SuccessComponent } from './success/success.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { SettingsComponent } from './settings/settings.component';
     TestComponent,
     A1SpacerZPsemComponent,
     GetPremiumComponent,
-    SettingsComponent
+    SettingsComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,

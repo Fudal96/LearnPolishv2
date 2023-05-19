@@ -21,8 +21,10 @@ namespace API.Controllers
     public class PaymentsController : ControllerBase
 {
         private readonly UserManager<AppUser> _userManager;
-    public PaymentsController(UserManager<AppUser> userManager)
+        private readonly IOptions<StripeSettings> _stripeSettings;
+    public PaymentsController(IOptions<StripeSettings> stripeSettings, UserManager<AppUser> userManager)
     {
+            _stripeSettings = stripeSettings;
             _userManager = userManager;
 
         StripeConfiguration.ApiKey = "sk_test_51N1AX9GrXwZ3ORKWnC0IEHkAj2NT9jneEc96VZVN9PAAIWUdde45X5l8BTBqXQDTH64L2SYiMLsGw6JYsJwB3BK400zcg8Q7Xe";
@@ -36,13 +38,13 @@ namespace API.Controllers
 		{
 			var options = new SessionCreateOptions
 			{
-				SuccessUrl = "https://localhost:4200/",
+				SuccessUrl = "https://localhost:4200/success",
 				CancelUrl = "https://localhost:4200/get-premium",
 				PaymentMethodTypes = new List<string>
 				{
 					"card",
 				},
-				Mode = "subscription",
+				Mode = "payment",
 				LineItems = new List<SessionLineItemOptions>
 				{
 					new SessionLineItemOptions
@@ -75,6 +77,23 @@ namespace API.Controllers
 				});
 			}
 		}
+
+
+		 [HttpPost("payment/add/role")]
+        	public async Task<ActionResult> SetRole([FromBody] GetUsername getUsername)
+        {
+           
+            var user = await _userManager.Users
+            .SingleOrDefaultAsync(x => x.UserName == getUsername.Username.ToLower());
+
+             if (user == null) return Unauthorized("invalid username");
+            var newRole = await _userManager.AddToRoleAsync(user, "PremiumMember");
+
+            if (!newRole.Succeeded) return BadRequest("Bad request");
+
+            return Ok(newRole);
+        }
+
 
 		[Authorize]
 		[HttpPost("customer-portal")]

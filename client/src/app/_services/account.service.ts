@@ -53,7 +53,77 @@ export class AccountService {
     )
   }
 
-  /*addCustomer(model: any) {
+
+
+  setRole(model: any) {
+    return this.http.post<getUsername>(this.baseUrl + 'payments/payment/add/role', model).pipe(
+      map((response: getUsername) => {
+        const username = response;
+        if (username) {
+          console.log(username)
+        }
+      })
+    )
+  }
+
+
+
+  requestMemberSession(model: any) {
+    return this.http.post<ISession>(this.baseUrl + 'payments/create-checkout-session', model).pipe(
+      map((response: ISession) => {
+        const session = response;
+        if (session) {
+          console.log(session)
+          this.redirectToCheckout(session.sessionId);
+        }
+      })
+    )
+  }
+
+  redirectToCheckout(sessionId: string) {
+    const stripe = Stripe('pk_test_51N1AX9GrXwZ3ORKWZJUtJESKPOPXExxpoxr7FYUyvtLu5iG2NQ9qk2rjJ9h8K7Z4aTK821QGfeMnrWR6uHpl0NPa00RilzBLPP');
+
+    stripe.redirectToCheckout({
+      sessionId: sessionId,
+    });
+  }
+
+
+
+  setCurrentUser(user: User) {
+    user.roles = [];
+    const roles = this.getDecodedToken(user.token).role;
+    Array.isArray(roles) ? user.roles = roles : user.roles.push(roles);
+    localStorage.setItem('user', JSON.stringify(user));
+    this.currentUserSource.next(user);
+  }
+
+  setCurrentUsername(getusername: getUsername | any) {
+    this.currentUsernameSource.next(getusername);
+    console.log(this.currentUsernameSource.value)
+  }
+
+  logout() {
+    localStorage.removeItem('user');
+    this.currentUserSource.next(null);
+  }
+
+  getDecodedToken(token: string) {
+    return JSON.parse(atob(token.split('.')[1]))
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+ /*addCustomer(model: any) {
     return this.http.post<Customer>(this.baseUrl + 'stripe/customer/add', model).pipe(
       map((response: Customer) => {
         const customer = response;
@@ -97,41 +167,7 @@ export class AccountService {
     )
   } */
 
-
-
-  setRole(model: any) {
-    return this.http.post<getUsername>(this.baseUrl + 'stripe/payment/add/role', model).pipe(
-      map((response: getUsername) => {
-        const username = response;
-        if (username) {
-          console.log(username)
-        }
-      })
-    )
-  }
-
-
-  requestMemberSession(model: any) {
-    return this.http.post<ISession>(this.baseUrl + 'payments/create-checkout-session', model).pipe(
-      map((response: ISession) => {
-        const session = response;
-        if (session) {
-          console.log(session)
-          this.redirectToCheckout(session.sessionId);
-        }
-      })
-    )
-  }
-
-  redirectToCheckout(sessionId: string) {
-    const stripe = Stripe('pk_test_51N1AX9GrXwZ3ORKWZJUtJESKPOPXExxpoxr7FYUyvtLu5iG2NQ9qk2rjJ9h8K7Z4aTK821QGfeMnrWR6uHpl0NPa00RilzBLPP');
-
-    stripe.redirectToCheckout({
-      sessionId: sessionId,
-    });
-  }
-
-  redirectToCustomerPortal(model: any) {
+   /*redirectToCustomerPortal(model: any) {
 
     this.http
       .post<ICustomerPortal>(
@@ -150,28 +186,4 @@ export class AccountService {
     };
 
     return httpOptions;
-  }
-
-
-  setCurrentUser(user: User) {
-    user.roles = [];
-    const roles = this.getDecodedToken(user.token).role;
-    Array.isArray(roles) ? user.roles = roles : user.roles.push(roles);
-    localStorage.setItem('user', JSON.stringify(user));
-    this.currentUserSource.next(user);
-  }
-
-  setCurrentUsername(getusername: getUsername | any) {
-    this.currentUsernameSource.next(getusername);
-    console.log(this.currentUsernameSource.value)
-  }
-
-  logout() {
-    localStorage.removeItem('user');
-    this.currentUserSource.next(null);
-  }
-
-  getDecodedToken(token: string) {
-    return JSON.parse(atob(token.split('.')[1]))
-  }
-}
+  }*/

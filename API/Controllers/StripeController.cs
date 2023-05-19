@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
@@ -72,11 +73,11 @@ namespace Stripe_Payments_Web_Api.Controllers
         [HttpPost("payment/add/role")]
         public async Task<ActionResult> SetRole([FromBody] GetUsername getUsername)
         {
+           
             var user = await _userManager.Users
             .SingleOrDefaultAsync(x => x.UserName == getUsername.Username.ToLower());
 
              if (user == null) return Unauthorized("invalid username");
-            
             var newRole = await _userManager.AddToRoleAsync(user, "PremiumMember");
 
             if (!newRole.Succeeded) return BadRequest("Bad request");
@@ -86,3 +87,10 @@ namespace Stripe_Payments_Web_Api.Controllers
     }
 }
 
+
+
+
+            // var user = await _userManager.Users
+           // .SingleOrDefaultAsync(x => x.UserName == getUsername.Username.ToLower());
+
+            // if (user == null) return Unauthorized("invalid username");

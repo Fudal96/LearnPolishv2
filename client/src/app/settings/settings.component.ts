@@ -15,12 +15,22 @@ export class SettingsComponent implements OnInit{
   constructor(public accountService: AccountService) {}
 
 
-  goToBillingPortal() {
-    this.accountService.redirectToCustomerPortal(this.rUrl);
-  }
+
 
   ngOnInit(): void {
 
   }
 
 }
+
+
+
+
+
+
+
+
+
+ /*goToBillingPortal() {
+    this.accountService.redirectToCustomerPortal(this.rUrl);
+  } */
