@@ -4,6 +4,7 @@ using API.Data;
 using API.Helpers;
 using API.Interfaces;
 using API.Services;
+using Core.Services.Email;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Extensions
@@ -22,6 +23,7 @@ namespace API.Extensions
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IPaymentService, PaymentService>();
+            services.AddSingleton<IEmailSender, EmailSender>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         
 

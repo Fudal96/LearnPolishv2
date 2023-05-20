@@ -111,6 +111,11 @@ export class AccountService {
   getDecodedToken(token: string) {
     return JSON.parse(atob(token.split('.')[1]))
   }
+
+
+  confirmEmail(model: any) {
+    return this.http.post(this.baseUrl + 'account/confirmemail', model);
+  }
 }
 
 

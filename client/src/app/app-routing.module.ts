@@ -11,6 +11,7 @@ import { AdminGuard } from './_guards/admin.guard';
 import { GetPremiumComponent } from './get-premium/get-premium.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SuccessComponent } from './success/success.component';
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'get-premium', component: GetPremiumComponent},
   {path: 'settings', component: SettingsComponent},
   {path: 'success', component: SuccessComponent},
+  {path: 'confirmemail', component: ConfirmEmailComponent},
   {path: '',
     runGuardsAndResolvers: 'always',
     canActivate: [AdminGuard],

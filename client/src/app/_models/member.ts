@@ -1,6 +1,7 @@
 export interface Member {
   id: number
   userName: string
+  email: string
   photoUrl: string
   age: number
   knownAs: string

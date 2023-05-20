@@ -2,11 +2,14 @@
 
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 using API.Data;
 using API.DTOs;
 using API.Entities;
 using API.Interfaces;
+using API.ViewModels;
 using AutoMapper;
+using Core.Services.Email;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,8 +21,12 @@ namespace API.Controllers
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
         private readonly UserManager<AppUser> _userManager;
-        public AccountController(UserManager<AppUser> userManager, ITokenService tokenService, IMapper mapper)
+        private readonly IConfiguration _config;
+        private readonly IEmailSender _emailSender;
+        public AccountController(UserManager<AppUser> userManager, ITokenService tokenService, IMapper mapper, IConfiguration config, IEmailSender emailSender)
         {
+            _emailSender = emailSender;
+            _config = config;
             _userManager = userManager;
             _mapper = mapper;
             _tokenService = tokenService;
@@ -31,16 +38,35 @@ namespace API.Controllers
          {
             if (await UserExists(registerDto.Username)) return BadRequest("Username is already taken");
 
+            if (await EmailExists(registerDto.Email)) return BadRequest("This Email is already in use");
+
             // we're going from ApUser to RegisterDto
            var user = _mapper.Map<AppUser>(registerDto);
 
 
                 user.UserName = registerDto.Username.ToLower();
+
+                user.Email = registerDto.Email.ToLower();
                 
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
 
             if (!result.Succeeded) return BadRequest("Password must have at least 1 uppercase, 1 lowercase and 1 digit ");
+
+            var userFromDb = await _userManager.FindByNameAsync(user.UserName);
+
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(userFromDb);
+
+            var uriBuilder = new UriBuilder(_config["ReturnPaths:ConfirmEmail"]);
+				var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+				query["token"] = token;
+				query["userid"] = userFromDb.Id.ToString();
+				uriBuilder.Query = query.ToString();
+				var urlString = uriBuilder.ToString();
+
+                var senderEmail = _config["ReturnPaths:SenderEmail"];
+
+				await _emailSender.SendEmailAsync(senderEmail, userFromDb.Email, "Confirm your email address", urlString);
 
             var roleResult = await _userManager.AddToRoleAsync(user, "Member");
 
@@ -49,6 +75,7 @@ namespace API.Controllers
             return new UserDto
             {
                 Username = user.UserName,
+                Email = user.Email,
                 Token = await _tokenService.CreateToken(user),
             };
          }
@@ -58,6 +85,7 @@ namespace API.Controllers
          {
             var user = await _userManager.Users
             .SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
+
 
             // if the user does not exist in our database we can't let him log in
             if (user == null) return Unauthorized("invalid username");
@@ -73,10 +101,31 @@ namespace API.Controllers
             };
          }
 
+         [HttpPost("confirmemail")]
+		public async Task<IActionResult> ConfirmEmail(ConfirmEmailViewModel model)
+		{
+			var user = await _userManager.FindByIdAsync(model.UserId);
+
+			var result = await _userManager.ConfirmEmailAsync(user, model.Token);
+
+			if (result.Succeeded)
+			{
+				return Ok();
+			}
+
+			return BadRequest();
+		}
+
          private async Task<bool> UserExists(string username)
          {
             return await _userManager.Users.AnyAsync(x => x.UserName == username.ToLower());
          }
+
+          private async Task<bool> EmailExists(string email)
+         {
+            return await _userManager.Users.AnyAsync(x => x.Email == email.ToLower());
+         }
+
 
     }
 }
