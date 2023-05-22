@@ -13,7 +13,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class NavComponent implements OnInit{
 modalRef?: BsModalRef;
-isCollapsed: boolean = true; 
+isCollapsed: boolean = true;
 model: any = {};
 registerMode = false;
 
@@ -53,6 +53,8 @@ constructor(public accountService: AccountService, private router: Router, priva
   cancelRegisterMode(event: boolean) {
   this.registerMode = event;
 }
+
+
 
 
 

@@ -27,6 +27,8 @@ import { GetPremiumComponent } from './get-premium/get-premium.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SuccessComponent } from './success/success.component';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
     GetPremiumComponent,
     SettingsComponent,
     SuccessComponent,
-    ConfirmEmailComponent
+    ConfirmEmailComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

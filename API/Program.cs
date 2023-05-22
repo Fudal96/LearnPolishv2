@@ -25,6 +25,9 @@ builder.Services.AddStripeInfrastructure(builder.Configuration);
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
 
+builder.Services.Configure<DataProtectionTokenProviderOptions>(opt =>
+   opt.TokenLifespan = TimeSpan.FromHours(20));
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

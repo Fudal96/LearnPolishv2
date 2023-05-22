@@ -25,20 +25,15 @@ export class ConfirmEmailComponent implements OnInit {
   }
 
   confirmEmail() {
-   // this.progressBar.startLoading();
     this.accountService.confirmEmail(this.urlParams).subscribe(
       () => {
-        //this.progressBar.setSuccess();
         console.log('success');
         this.toastr.success('Email Confirmed');
-       // this.progressBar.completeLoading();
         this.emailConfirmed = true;
       },
       (error) => {
-        //this.progressBar.setFailure();
         console.log(error);
         this.toastr.error('Unable to confirm email');
-       // this.progressBar.completeLoading();
         this.emailConfirmed = false;
       }
     );

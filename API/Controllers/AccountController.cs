@@ -57,6 +57,8 @@ namespace API.Controllers
 
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(userFromDb);
 
+           // var passwordreset = await _userManager.GeneratePasswordResetTokenAsync(userFromDb);
+
             var uriBuilder = new UriBuilder(_config["ReturnPaths:ConfirmEmail"]);
 				var query = HttpUtility.ParseQueryString(uriBuilder.Query);
 				query["token"] = token;
@@ -80,6 +82,8 @@ namespace API.Controllers
             };
          }
 
+         //////////////////////////////////////////////////////////////////////////
+
          [HttpPost("login")]
          public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
          {
@@ -101,6 +105,8 @@ namespace API.Controllers
             };
          }
 
+         //////////////////////////////////////////////////////////////////////////
+
          [HttpPost("confirmemail")]
 		public async Task<IActionResult> ConfirmEmail(ConfirmEmailViewModel model)
 		{
@@ -115,6 +121,55 @@ namespace API.Controllers
 
 			return BadRequest();
 		}
+
+        //////////////////////////////////////////////////////////////////////////
+
+            [HttpPost("forgotpassword")]
+           // [ValidateAntiForgeryToken]
+            public async Task<IActionResult> ForgotPassword(ForgotPasswordModel forgotPasswordModel)
+            {
+
+                var userFromDb = await _userManager.FindByEmailAsync(forgotPasswordModel.Email);
+
+                if (userFromDb == null) return BadRequest("User not found");
+                    
+                var token = await _userManager.GeneratePasswordResetTokenAsync(userFromDb);
+
+               var uriBuilder = new UriBuilder(_config["ReturnPaths:ResetPassword"]);
+				var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+				query["token"] = token;
+				query["userid"] = userFromDb.Id.ToString();
+				uriBuilder.Query = query.ToString();
+				var urlString = uriBuilder.ToString();
+
+                var senderEmail = _config["ReturnPaths:SenderEmail"];
+
+				await _emailSender.SendEmailAsync(senderEmail, userFromDb.Email, "Reset your password", urlString);
+
+                return Ok();
+            }
+
+
+            ///////////////////////////////////////////////////////////////////////
+        [HttpPost("resetpassword")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel resetPasswordModel)
+        {
+            var user = await _userManager.FindByIdAsync(resetPasswordModel.UserId);
+
+            var result = await _userManager.ResetPasswordAsync(user, resetPasswordModel.Token, resetPasswordModel.Password);
+
+            if (result.Succeeded)
+			{
+				return Ok();
+			}
+
+			return BadRequest();
+        }
+
+      
+
+
+
 
          private async Task<bool> UserExists(string username)
          {

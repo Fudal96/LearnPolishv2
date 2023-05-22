@@ -116,6 +116,14 @@ export class AccountService {
   confirmEmail(model: any) {
     return this.http.post(this.baseUrl + 'account/confirmemail', model);
   }
+
+  forgotPassword(model: any) {
+    return this.http.post(this.baseUrl + 'account/forgotpassword', model);
+  }
+
+  resetPassword(model: any) {
+    return this.http.post(this.baseUrl + 'account/resetpassword', model);
+  }
 }
 
 

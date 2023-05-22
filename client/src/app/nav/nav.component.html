@@ -111,8 +111,12 @@
       class="form-control mb-2"
       type="password"
       placeholder="Password">
+
       <button class="btn btn-danger" type="submit" (click)="modalRef?.hide()">Login</button>
-    </form>
+</form>
+
+    <button (click)="modalRef?.hide()" class="forgot-password" routerLink="/forgot-password">Forgot Password?</button>
+
    <p class="text-center mt-2">Don't have an account?</p>
    <div class="container mt-2">
     <div *ngIf="!registerMode" style="text-align: center;">

@@ -12,6 +12,8 @@ import { GetPremiumComponent } from './get-premium/get-premium.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SuccessComponent } from './success/success.component';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path: 'settings', component: SettingsComponent},
   {path: 'success', component: SuccessComponent},
   {path: 'confirmemail', component: ConfirmEmailComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent},
+  {path: 'reset-password', component: ResetPasswordComponent},
   {path: '',
     runGuardsAndResolvers: 'always',
     canActivate: [AdminGuard],
