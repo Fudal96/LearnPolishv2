@@ -57,7 +57,6 @@ namespace API.Controllers
 
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(userFromDb);
 
-           // var passwordreset = await _userManager.GeneratePasswordResetTokenAsync(userFromDb);
 
             var uriBuilder = new UriBuilder(_config["ReturnPaths:ConfirmEmail"]);
 				var query = HttpUtility.ParseQueryString(uriBuilder.Query);
@@ -150,7 +149,7 @@ namespace API.Controllers
             }
 
 
-            ///////////////////////////////////////////////////////////////////////
+         ///////////////////////////////////////////////////////////////////////
         [HttpPost("resetpassword")]
         public async Task<IActionResult> ResetPassword(ResetPasswordModel resetPasswordModel)
         {
@@ -169,7 +168,7 @@ namespace API.Controllers
       
 
 
-
+        ///////////////////////////////////////////////////////////////////////
 
          private async Task<bool> UserExists(string username)
          {

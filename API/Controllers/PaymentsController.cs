@@ -1,5 +1,3 @@
-
-using API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using API.DTOs;
@@ -7,8 +5,6 @@ using API.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Stripe;
-using Stripe_Payments_Web_Api.Contracts;
-using Stripe_Payments_Web_Api.Models.Stripe;
 using Stripe.Checkout;
 using API.Models;
 using System.Security.Claims;

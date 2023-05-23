@@ -1,13 +1,10 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { BehaviorSubject, Observable, map, of } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { User } from '../_models/user';
-import { ToastrService } from 'ngx-toastr';
-import { Customer } from '../_models/customer';
-import { Payment } from '../_models/payment';
 import { getUsername } from '../_models/getUsername';
-import { ICustomerPortal, IMemberShipPlan, ISession } from '../_models/IMemberships';
+import { ISession } from '../_models/IMemberships';
 
 declare const Stripe: any;
 
