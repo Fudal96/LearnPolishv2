@@ -1,5 +1,6 @@
 
 
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
@@ -13,6 +14,7 @@ using Core.Services.Email;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace API.Controllers
 {
@@ -164,8 +166,32 @@ namespace API.Controllers
 
 			return BadRequest();
         }
+         ///////////////////////////////////////////////////////////////////////
+         [HttpPost("sendemailconfirmationlink")]
+        public async Task<IActionResult> SendEmailConfirmationLink()
+        {
+            ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
+			var claim = principal.Claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier");
 
-      
+			var userFromDb = await _userManager.FindByNameAsync(claim.Value);
+
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(userFromDb);
+
+
+            var uriBuilder = new UriBuilder(_config["ReturnPaths:ConfirmEmail"]);
+				var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+				query["token"] = token;
+				query["userid"] = userFromDb.Id.ToString();
+				uriBuilder.Query = query.ToString();
+				var urlString = uriBuilder.ToString();
+
+                var senderEmail = _config["ReturnPaths:SenderEmail"];
+
+				await _emailSender.SendEmailAsync(senderEmail, userFromDb.Email, "Confirm your email address", urlString);
+
+                return Ok();
+
+        }
 
 
         ///////////////////////////////////////////////////////////////////////
