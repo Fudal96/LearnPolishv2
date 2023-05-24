@@ -1,11 +1,47 @@
 
-<button class="btn btn-info" *ngIf="(accountService.currentUser$ | async) as user" (click)="sendEmailConfirmationLink()">Confirm your e-mail</button>
+
+<section class="settings ms-4 mt-4">
+
+  <div class="username-container">
+    <h4>Your username</h4>
+    <div class="shared username">
+    <span>{{username}}</span>
+  </div>
+  </div>
+
+  <div class="email-address-container mt-3">
+    <h4>Email address</h4>
+    <div class="shared email-address">
+    <span>{{emailAddress}}</span>
+  </div>
+  </div>
 
 
+<ng-container *ngIf="emailConfirmed === false" >
+
+  <button class="btn btn-danger p-1 mt-1" *ngIf="(accountService.currentUser$ | async) as user" (click)="sendEmailConfirmationLink()">Send email confirmation link</button>
+
+</ng-container>
+
+<ng-container *ngIf="emailConfirmed != false" >
+
+<div class="email-confirmed">
+  <span>Your Email has been confirmed</span>
+</div>
+
+</ng-container>
 
 
+<div class="membership-container mt-3">
+  <h4>Membership status</h4>
+  <div class="shared membership">
+  <span *ngIf="roles.length === 2">Premium Member</span>
+  <span *ngIf="roles.length === 1">Basic</span>
+</div>
+<span *ngIf="roles.length === 1" routerLink="/get-premium" style="text-decoration: underline;">Upgrade to Premium?</span>
+</div>
 
-
+</section>
 
 
 

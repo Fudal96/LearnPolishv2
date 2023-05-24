@@ -10,6 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SettingsComponent implements OnInit{
 model: any = {};
+emailConfirmed: boolean = false;
+emailAddress: string | any;
+roles: any = {};
+username: string | any;
 
 
   constructor(public accountService: AccountService, private toastr: ToastrService, private router: Router, private route: ActivatedRoute) {}
@@ -18,7 +22,7 @@ model: any = {};
 
 
   ngOnInit(): void {
-
+    this.isEmailCOnfirmed();
   }
 
   sendEmailConfirmationLink() {
@@ -32,6 +36,17 @@ model: any = {};
       }
     })
   }
+
+  isEmailCOnfirmed() {
+    var user = localStorage.getItem('user');
+    var userParse = JSON.parse(user!)
+    var emailConfirmed = userParse.emailConfirmed;
+    this.emailConfirmed = emailConfirmed;
+    this.emailAddress = userParse.email;
+    this.roles = userParse.roles;
+    this.username = userParse.username;
+  }
+
 
 }
 

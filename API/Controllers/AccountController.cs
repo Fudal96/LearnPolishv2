@@ -102,6 +102,8 @@ namespace API.Controllers
             return new UserDto
             {
                 Username = user.UserName,
+                Email = user.Email,
+                EmailConfirmed = user.EmailConfirmed,
                 Token = await _tokenService.CreateToken(user),
             };
          }

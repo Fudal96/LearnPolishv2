@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { AccountService } from '../_services/account.service';
 import { ToastrService } from 'ngx-toastr';
@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ConfirmEmailComponent implements OnInit {
   emailConfirmed: boolean = false;
   urlParams: any = {};
+
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +31,7 @@ export class ConfirmEmailComponent implements OnInit {
         console.log('success');
         this.toastr.success('Email Confirmed');
         this.emailConfirmed = true;
+        
       },
       (error) => {
         console.log(error);
