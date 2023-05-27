@@ -29,6 +29,7 @@ import { SuccessComponent } from './success/success.component';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     SuccessComponent,
     ConfirmEmailComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
