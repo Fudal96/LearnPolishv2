@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../_services/account.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-success',
@@ -11,7 +12,7 @@ export class SuccessComponent implements OnInit {
 
   model: any = {}
 
-  constructor(public accountService: AccountService, private router: Router) {}
+  constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService) {}
 
 
   ngOnInit(): void {
@@ -36,6 +37,7 @@ export class SuccessComponent implements OnInit {
 
 
   logout() {
+    this.toastr.success('Please log in to your account')
     this.accountService.logout();
     this.router.navigateByUrl('/');
     this.model = {};

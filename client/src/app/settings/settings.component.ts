@@ -30,9 +30,11 @@ username: string | any;
       next: () => {
         console.log('sent')
         console.log(this.model)
+        this.toastr.success('Email confirmation link has been sent')
       },
       error: error => {
         console.log(error)
+        this.toastr.error('Unable to send email confiramtion link')
       }
     })
   }

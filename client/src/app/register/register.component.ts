@@ -46,6 +46,7 @@ export class RegisterComponent implements OnInit{
     this.accountService.register(this.registerForm.value).subscribe({
       next: () => {
         console.log('You have registered')
+        this.toastr.success('You have successfully registered')
       },
       error: error => {
        this.validationErrors = error

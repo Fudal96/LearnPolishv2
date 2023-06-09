@@ -35,7 +35,7 @@ constructor(public accountService: AccountService, private router: Router, priva
     this.accountService.login(this.model).subscribe({
       next: () =>
         //this.router.navigateByUrl('/members')
-        console.log(this.model)
+        console.log('success')
     })
   }
 

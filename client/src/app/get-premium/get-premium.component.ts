@@ -20,7 +20,7 @@ const PriceId = {
 })
 export class GetPremiumComponent implements OnInit{
 getusername: getUsername | any;
-
+registerM = true;
 
 
 
@@ -86,8 +86,8 @@ getusername: getUsername | any;
     })
   }
 
-  test1() {
-
+  cancelRegisterM() {
+    this.registerM = false;
   }
 
 
