@@ -34,6 +34,9 @@ answered = 0;
 
 @ViewChild('matchgame') matchGame: ElementRef | undefined;
 
+@ViewChild('take1') take1: ElementRef | undefined;
+@ViewChild('take2') take2: ElementRef | undefined;
+
 
 sentence = [
   'Moim'
@@ -433,6 +436,26 @@ shuffleArray(matchArray: any) {
     boardGameChildren.forEach(x => x.classList.remove('matched'))
     this.shuffleArray(this.matchArray);
     this.matchedWords = 0;
+   }
+
+   //////////// Exercise 4 ///////////////////////
+
+
+
+   takeFunction(event: any) {
+    const input = event.target.value
+    const answer = this.take1?.nativeElement.dataset.answer
+    if (input === answer) {
+      console.log(this.take1?.nativeElement)
+    }
+   }
+
+   takeFunction2(event: any) {
+    const input = event.target.value
+    const answer = this.take2?.nativeElement.dataset.answer
+    if (input === answer) {
+      console.log('correct')
+    }
    }
 
 }

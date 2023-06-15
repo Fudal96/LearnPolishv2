@@ -1,11 +1,10 @@
 <header class="col-12 g-header-container">
   <div class="g-header">
-    <button routerLink="/ReadingPolish" class="btn btn-danger" style="font-weight: 700;">Home page</button>
+    <button routerLink="/ReadingPolish" class="btn"> Home page</button>
     <div class="g-pdf">
       <img src="https://res.cloudinary.com/dyyonpr5j/image/upload/v1681570220/pdf-file-svgrepo-com_qrtdnk.svg">
       <a href="./ReadingPolish/assets/test.pdf" download="A1-Co-Lubię-Robić">
         <button class="btn btn-link g-pdf-btn">Download PDF</button>
-        <button class="btn btn-link g-pdf-btn-sm">PDF</button>
         </a>
     </div>
   </div>
@@ -282,6 +281,37 @@
             <div class="board-game-reset">
               <button [disabled]="matchedWords !== 9" (click)="resetBoardGame()">Play again</button>
             </div>
+
+          </section>
+        </tab>
+        <!-----------------Exercise 4------------------------->
+        <tab heading="Exercise 4">
+          <section class="exercise-two-container">
+            <h5>How do you say it in Polish?</h5>
+<div class="take-wrapper">
+            <div class="take">
+              <div class="take-english">
+                <p>to paint</p>
+              </div>
+              <div class="take-polish">
+                <form>
+                <input #take1 type="text" data-answer="malować" (input)="takeFunction($event)">
+              </form>
+              </div>
+            </div>
+
+            <div class="take">
+              <div class="take-english">
+                <p>to try</p>
+              </div>
+              <div class="take-polish">
+                <form>
+                <input #take2 type="text" data-answer="próbować" (input)="takeFunction2($event)">
+              </form>
+              </div>
+            </div>
+          </div>
+
 
           </section>
         </tab>
