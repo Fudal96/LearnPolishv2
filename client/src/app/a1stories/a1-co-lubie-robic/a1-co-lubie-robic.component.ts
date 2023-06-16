@@ -34,8 +34,6 @@ answered = 0;
 
 @ViewChild('matchgame') matchGame: ElementRef | undefined;
 
-@ViewChild('take1') take1: ElementRef | undefined;
-@ViewChild('take2') take2: ElementRef | undefined;
 
 
 sentence = [
@@ -444,19 +442,19 @@ shuffleArray(matchArray: any) {
 
    takeFunction(event: any) {
     const input = event.target.value
-    const answer = this.take1?.nativeElement.dataset.answer
-    if (input === answer) {
-      console.log(this.take1?.nativeElement)
+    const answer = event.target.dataset.answer
+    const box = event.target
+    console.log(answer)
+    console.log(input)
+    console.log(box)
+    if (input.toLowerCase() === answer) {
+      console.log('correct')
+      box.classList.add('correct')
+      box.disabled = true;
     }
    }
 
-   takeFunction2(event: any) {
-    const input = event.target.value
-    const answer = this.take2?.nativeElement.dataset.answer
-    if (input === answer) {
-      console.log('correct')
-    }
-   }
+
 
 }
 
