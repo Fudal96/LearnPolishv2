@@ -274,7 +274,12 @@ h5 {
 // Exercise 4 //////////
 
 .take {
+  position: relative;
   margin-top: 20px;
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 1);
+background-image: linear-gradient(237deg, rgba(255, 255, 255, 1) 0%, rgba(247, 247, 247, 1) 100%);
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -297,5 +302,26 @@ h5 {
   outline: none;
   color: green;
 
+}
+.take.correct {
+
+}
+
+.tsk {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  border: 2px solid #A32724;
+  background-color: #A32724;
+  opacity: 87%;
+  //border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  padding: 5px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
