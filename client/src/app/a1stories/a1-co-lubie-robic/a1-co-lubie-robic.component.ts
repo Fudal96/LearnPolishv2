@@ -454,6 +454,36 @@ shuffleArray(matchArray: any) {
     }
    }
 
+   getLetter(event: any) {
+    const input = event.target.value
+    console.log(input)
+    const one = input.charAt(0)
+    console.log(one)
+    let parent = event.target.parentElement
+    console.log(parent)
+    let parentChild = parent.firstChild
+    console.log(parentChild)
+    let currentInput = parentChild.value
+    console.log(currentInput)
+    let firstLetterCurrentInput = currentInput.charAt(0)
+    console.log(firstLetterCurrentInput)
+    if (firstLetterCurrentInput !== 'm') {
+      console.log('add')
+      //currentInput = one;
+      console.log(one)
+      console.log(parentChild.value)
+      parentChild.value = one
+      console.log(parentChild.value)
+
+    } else {
+      console.log('its there')
+    }
+
+
+
+
+   }
+
 
 
 }
