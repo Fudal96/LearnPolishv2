@@ -459,22 +459,31 @@ shuffleArray(matchArray: any) {
     console.log(input)
     const one = input.charAt(0)
     console.log(one)
+    const two = input.charAt(1)
+    console.log(two)
     let parent = event.target.parentElement
-    console.log(parent)
     let parentChild = parent.firstChild
-    console.log(parentChild)
     let currentInput = parentChild.value
     console.log(currentInput)
     let firstLetterCurrentInput = currentInput.charAt(0)
     console.log(firstLetterCurrentInput)
-    if (firstLetterCurrentInput !== 'm') {
+    if (firstLetterCurrentInput !== one) {
       console.log('add')
-      //currentInput = one;
-      console.log(one)
-      console.log(parentChild.value)
-      parentChild.value = one
       console.log(parentChild.value)
 
+      let arr = parentChild.value.split('')
+      console.log(arr)
+      arr[0] = one
+      console.log(arr)
+      parentChild.value = arr.join('')
+
+    } else if (firstLetterCurrentInput === one && firstLetterCurrentInput !== two){
+      console.log('add second')
+      let arr = parentChild.value.split('')
+      console.log(arr)
+      arr[1] = two
+      console.log(arr)
+      parentChild.value = arr.join('')
     } else {
       console.log('its there')
     }
