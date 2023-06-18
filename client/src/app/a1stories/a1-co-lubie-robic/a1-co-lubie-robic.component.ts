@@ -11,6 +11,7 @@ import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } fro
 export class A1CoLubieRobicComponent implements OnInit{
 points = 0;
 answered = 0;
+Fourpoints = 0;
 @ViewChildren('reset, reset2, reset3, reset4, reset5', {read: ElementRef}) childComp:QueryList<ElementRef> | undefined
 
 
@@ -444,6 +445,13 @@ shuffleArray(matchArray: any) {
     const input = event.target.value
     const answer = event.target.dataset.answer
     const box = event.target
+    const boxP = box.parentElement
+    const boxPP = boxP.parentElement
+    const boxPPP = boxPP.parentElement
+    const boxPPPP = boxPPP.parentElement
+    const plusSeven = boxPPPP.lastElementChild
+    console.log(boxPPPP)
+    console.log(plusSeven)
     console.log(answer)
     console.log(input)
     console.log(box)
@@ -451,42 +459,90 @@ shuffleArray(matchArray: any) {
       console.log('correct')
       box.classList.add('correct')
       box.disabled = true;
+      this.Fourpoints += 7;
+      plusSeven.classList.add('active')
     }
    }
 
    getLetter(event: any) {
     const input = event.target.value
-    console.log(input)
     const one = input.charAt(0)
-    console.log(one)
     const two = input.charAt(1)
-    console.log(two)
+    const three = input.charAt(2)
+    const four = input.charAt(3)
+    const five = input.charAt(4)
     let parent = event.target.parentElement
     let parentChild = parent.firstChild
+    console.log(parentChild)
     let currentInput = parentChild.value
-    console.log(currentInput)
     let firstLetterCurrentInput = currentInput.charAt(0)
-    console.log(firstLetterCurrentInput)
+    let secondLetterCurrentInput = currentInput.charAt(1)
+    let thirdLetterCurrentInput = currentInput.charAt(2)
+    let fourthLetterCurrentInput = currentInput.charAt(3)
+    let fifthLetterCurrentInput = currentInput.charAt(4)
     if (firstLetterCurrentInput !== one) {
       console.log('add')
       console.log(parentChild.value)
-
       let arr = parentChild.value.split('')
-      console.log(arr)
       arr[0] = one
-      console.log(arr)
       parentChild.value = arr.join('')
+      this.Fourpoints--
+      if (parentChild.dataset.answer.toLowerCase() === parentChild.value.toLowerCase()) {
+        parentChild.classList.add('correct')
+        parentChild.disabled = true;
+        this.Fourpoints =+ 7;
+      }
 
-    } else if (firstLetterCurrentInput === one && firstLetterCurrentInput !== two){
+    } else if (firstLetterCurrentInput === one && secondLetterCurrentInput !== two){
       console.log('add second')
       let arr = parentChild.value.split('')
-      console.log(arr)
       arr[1] = two
-      console.log(arr)
       parentChild.value = arr.join('')
-    } else {
+      this.Fourpoints--
+      if (parentChild.dataset.answer.toLowerCase() === parentChild.value.toLowerCase()) {
+        parentChild.classList.add('correct')
+        parentChild.disabled = true;
+        this.Fourpoints =+ 7;
+      }
+
+    } else if (firstLetterCurrentInput === one && secondLetterCurrentInput === two && thirdLetterCurrentInput !== three) {
+      console.log('add third')
+      let arr = parentChild.value.split('')
+      arr[2] = three
+      parentChild.value = arr.join('')
+      this.Fourpoints--
+      if (parentChild.dataset.answer.toLowerCase() === parentChild.value.toLowerCase()) {
+        parentChild.classList.add('correct')
+        parentChild.disabled = true;
+        this.Fourpoints =+ 7;
+      }
+    } else if (firstLetterCurrentInput === one && secondLetterCurrentInput === two && thirdLetterCurrentInput === three && fourthLetterCurrentInput !== four) {
+      console.log('add fourth')
+      let arr = parentChild.value.split('')
+      arr[3] = four
+      parentChild.value = arr.join('')
+      this.Fourpoints--
+      if (parentChild.dataset.answer.toLowerCase() === parentChild.value.toLowerCase()) {
+        parentChild.classList.add('correct')
+        parentChild.disabled = true;
+        this.Fourpoints =+ 7;
+      }
+    } else if (firstLetterCurrentInput === one && secondLetterCurrentInput === two && thirdLetterCurrentInput === three && fourthLetterCurrentInput === four && fifthLetterCurrentInput !== five) {
+      console.log('add fourth')
+      let arr = parentChild.value.split('')
+      arr[4] = five
+      parentChild.value = arr.join('')
+      this.Fourpoints--
+      if (parentChild.dataset.answer.toLowerCase() === parentChild.value.toLowerCase()) {
+        parentChild.classList.add('correct')
+        parentChild.disabled = true;
+        this.Fourpoints =+ 7;
+      }
+     } else {
       console.log('its there')
     }
+
+
 
 
 

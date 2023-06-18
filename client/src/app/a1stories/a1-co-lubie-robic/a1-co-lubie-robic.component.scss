@@ -323,3 +323,26 @@ background-image: linear-gradient(237deg, rgba(255, 255, 255, 1) 0%, rgba(247, 2
   color: white;
 }
 
+.plus-seven {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  font-size: 32px;
+  color: green;
+}
+.plus-seven.active {
+  display: block;
+  animation-name: plusSeven;
+  animation-duration: 2s;
+}
+
+@keyframes plusSeven {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 15%;
+  }
+}
+
+

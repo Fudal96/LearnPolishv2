@@ -287,7 +287,7 @@
         <!-----------------Exercise 4------------------------->
         <tab heading="Exercise 4">
           <section class="exercise-two-container">
-            <h5>How do you say it in Polish?</h5>
+            <h5>Can you write these in Polish?</h5>
 <div class="take-wrapper">
             <div class="take">
               <div class="take-english">
@@ -296,7 +296,7 @@
               <div class="take-polish">
                 <form>
                 <input type="text" class="input" data-answer="malować" (input)="takeFunction($event)">
-                <button class="btn btn-info" (click)="getLetter($event)" value="malować">get one letter</button>
+                <button class="btn btn-info" (click)="getLetter($event)" value="malować">get a hint!</button>
               </form>
               </div>
               <div class="tsk">1</div>
@@ -309,6 +309,7 @@
               <div class="take-polish">
                 <form>
                 <input type="text" class="input" data-answer="próbować" (input)="takeFunction($event)">
+                <button class="btn btn-info" (click)="getLetter($event)" value="próbować">get a hint!</button>
               </form>
               </div>
             <div class="tsk">2</div>
@@ -321,6 +322,7 @@
             <div class="take-polish">
               <form>
               <input type="text" class="input" data-answer="piątek" (input)="takeFunction($event)">
+              <button class="btn btn-info" (click)="getLetter($event)" value="piątek">get a hint!</button>
             </form>
             </div>
             <div class="tsk">3</div>
@@ -333,6 +335,7 @@
             <div class="take-polish">
               <form>
               <input type="text" class="input" data-answer="muzyka" (input)="takeFunction($event)">
+              <button class="btn btn-info" (click)="getLetter($event)" value="muzyka">get a hint!</button>
             </form>
             </div>
             <div class="tsk">4</div>
@@ -345,6 +348,7 @@
             <div class="take-polish">
               <form>
               <input type="text" class="input" data-answer="pływać" (input)="takeFunction($event)">
+              <button class="btn btn-info" (click)="getLetter($event)" value="pływać">get a hint!</button>
             </form>
             </div>
             <div class="tsk">5</div>
@@ -357,6 +361,7 @@
             <div class="take-polish">
               <form>
               <input type="text" class="input" data-answer="teatr" (input)="takeFunction($event)">
+              <button class="btn btn-info" (click)="getLetter($event)" value="teatr">get a hint!</button>
             </form>
             </div>
             <div class="tsk">6</div>
@@ -369,12 +374,16 @@
             <div class="take-polish">
               <form>
               <input type="text" class="input" data-answer="uzdolniony" (input)="takeFunction($event)">
+              <button class="btn btn-info" (click)="getLetter($event)" value="uzdolniony">get a hint!</button>
             </form>
             </div>
             <div class="tsk">7</div>
           </div>
-
+          <div class="plus-seven">+7</div>
 </div>
+
+<div>{{Fourpoints}}</div>
+
           </section>
         </tab>
     </tabset>
