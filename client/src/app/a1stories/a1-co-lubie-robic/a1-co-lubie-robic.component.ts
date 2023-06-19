@@ -35,6 +35,9 @@ Fourpoints = 0;
 
 @ViewChild('matchgame') matchGame: ElementRef | undefined;
 
+@ViewChild('ex4message') ex4Message: ElementRef | undefined;
+@ViewChild('plusseven') plusSevn: ElementRef | undefined;
+
 
 
 sentence = [
@@ -445,22 +448,21 @@ shuffleArray(matchArray: any) {
     const input = event.target.value
     const answer = event.target.dataset.answer
     const box = event.target
-    const boxP = box.parentElement
-    const boxPP = boxP.parentElement
-    const boxPPP = boxPP.parentElement
-    const boxPPPP = boxPPP.parentElement
-    const plusSeven = boxPPPP.lastElementChild
-    console.log(boxPPPP)
-    console.log(plusSeven)
-    console.log(answer)
-    console.log(input)
-    console.log(box)
+    const plusSeven = this.plusSevn?.nativeElement
     if (input.toLowerCase() === answer) {
-      console.log('correct')
       box.classList.add('correct')
       box.disabled = true;
       this.Fourpoints += 7;
       plusSeven.classList.add('active')
+      const messageex4 = this.ex4Message?.nativeElement
+      setTimeout(() => {
+        plusSeven.classList.remove('active')
+      }, 1000)
+      if (this.Fourpoints == 49) {
+        console.log('49')
+        messageex4.classList.add('active')
+      }
+
     }
    }
 
@@ -473,6 +475,7 @@ shuffleArray(matchArray: any) {
     const five = input.charAt(4)
     let parent = event.target.parentElement
     let parentChild = parent.firstChild
+    const plusSeven = this.plusSevn?.nativeElement
     console.log(parentChild)
     let currentInput = parentChild.value
     let firstLetterCurrentInput = currentInput.charAt(0)
@@ -490,7 +493,12 @@ shuffleArray(matchArray: any) {
       if (parentChild.dataset.answer.toLowerCase() === parentChild.value.toLowerCase()) {
         parentChild.classList.add('correct')
         parentChild.disabled = true;
-        this.Fourpoints =+ 7;
+        this.Fourpoints += 7;
+        plusSeven.classList.add('active')
+        setTimeout(() => {
+          plusSeven.classList.remove('active')
+        }, 1000)
+
       }
 
     } else if (firstLetterCurrentInput === one && secondLetterCurrentInput !== two){
@@ -502,7 +510,11 @@ shuffleArray(matchArray: any) {
       if (parentChild.dataset.answer.toLowerCase() === parentChild.value.toLowerCase()) {
         parentChild.classList.add('correct')
         parentChild.disabled = true;
-        this.Fourpoints =+ 7;
+        this.Fourpoints += 7;
+        plusSeven.classList.add('active')
+        setTimeout(() => {
+          plusSeven.classList.remove('active')
+        }, 1000)
       }
 
     } else if (firstLetterCurrentInput === one && secondLetterCurrentInput === two && thirdLetterCurrentInput !== three) {
@@ -514,7 +526,11 @@ shuffleArray(matchArray: any) {
       if (parentChild.dataset.answer.toLowerCase() === parentChild.value.toLowerCase()) {
         parentChild.classList.add('correct')
         parentChild.disabled = true;
-        this.Fourpoints =+ 7;
+        this.Fourpoints += 7;
+        plusSeven.classList.add('active')
+        setTimeout(() => {
+          plusSeven.classList.remove('active')
+        }, 1000)
       }
     } else if (firstLetterCurrentInput === one && secondLetterCurrentInput === two && thirdLetterCurrentInput === three && fourthLetterCurrentInput !== four) {
       console.log('add fourth')
@@ -525,7 +541,11 @@ shuffleArray(matchArray: any) {
       if (parentChild.dataset.answer.toLowerCase() === parentChild.value.toLowerCase()) {
         parentChild.classList.add('correct')
         parentChild.disabled = true;
-        this.Fourpoints =+ 7;
+        this.Fourpoints += 7;
+        plusSeven.classList.add('active')
+        setTimeout(() => {
+          plusSeven.classList.remove('active')
+        }, 1000)
       }
     } else if (firstLetterCurrentInput === one && secondLetterCurrentInput === two && thirdLetterCurrentInput === three && fourthLetterCurrentInput === four && fifthLetterCurrentInput !== five) {
       console.log('add fourth')
@@ -536,21 +556,28 @@ shuffleArray(matchArray: any) {
       if (parentChild.dataset.answer.toLowerCase() === parentChild.value.toLowerCase()) {
         parentChild.classList.add('correct')
         parentChild.disabled = true;
-        this.Fourpoints =+ 7;
+        this.Fourpoints += 7;
+        plusSeven.classList.add('active')
+        setTimeout(() => {
+          plusSeven.classList.remove('active')
+        }, 1000)
       }
      } else {
       console.log('its there')
+      console.log(parentChild)
+      parentChild.classList.add('nohints')
+      setTimeout(() => {
+        parentChild.classList.remove('nohints')
+      }, 500)
     }
 
 
 
+}
 
-
-
-   }
-
-
-
+restartEx4() {
+  
+}
 }
 
 

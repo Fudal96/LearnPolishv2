@@ -1,5 +1,6 @@
 main {
   margin-top: 25px;
+  width: 100vw;
 }
 
 .tab-wrap {
@@ -286,6 +287,22 @@ background-image: linear-gradient(237deg, rgba(255, 255, 255, 1) 0%, rgba(247, 2
   align-items: center;
   font-weight: bold;
 }
+
+.take-polish-w {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-hint {
+  height: 100%;
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 0px 15px;
+}
+
 .take p {
   font-size: 28px;
   width: 90vw;
@@ -302,6 +319,10 @@ background-image: linear-gradient(237deg, rgba(255, 255, 255, 1) 0%, rgba(247, 2
   outline: none;
   color: green;
 
+}
+.input.nohints {
+  background-color: rgb(216, 216, 216);
+  opacity: 0.7;
 }
 
 
@@ -324,16 +345,19 @@ background-image: linear-gradient(237deg, rgba(255, 255, 255, 1) 0%, rgba(247, 2
 }
 
 .plus-seven {
+  display: none;
   position: fixed;
   top: 50%;
-  right: 50%;
-  font-size: 32px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 34px;
+  font-weight: 700;
   color: green;
 }
 .plus-seven.active {
   display: block;
   animation-name: plusSeven;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 @keyframes plusSeven {
@@ -344,5 +368,40 @@ background-image: linear-gradient(237deg, rgba(255, 255, 255, 1) 0%, rgba(247, 2
     top: 15%;
   }
 }
+
+.ex4-score {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+.ex4-score-p {
+  text-align: center;
+}
+.ex4-best {
+  display: none;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: green;
+  font-weight: 700;
+}
+.ex4-best.active {
+  display: flex;
+}
+.hint-p {
+  width: 86vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  padding: 10px 25px;
+  text-align: center;
+  border: 1px dotted gray;
+}
+
 
 

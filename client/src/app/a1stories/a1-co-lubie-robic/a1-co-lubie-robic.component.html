@@ -288,15 +288,16 @@
         <tab heading="Exercise 4">
           <section class="exercise-two-container">
             <h5>Can you write these in Polish?</h5>
+            <div class="hint-p">As a hint you can get the maximum of 5 first letters of a word. Each hint will take away 1 point from your overall score.</div>
 <div class="take-wrapper">
             <div class="take">
               <div class="take-english">
                 <p>to paint</p>
               </div>
               <div class="take-polish">
-                <form>
+                <form class="take-polish-w">
                 <input type="text" class="input" data-answer="malować" (input)="takeFunction($event)">
-                <button class="btn btn-info" (click)="getLetter($event)" value="malować">get a hint!</button>
+                <button class="button-hint" (click)="getLetter($event)" value="malować">hint!</button>
               </form>
               </div>
               <div class="tsk">1</div>
@@ -307,9 +308,9 @@
                 <p>to try</p>
               </div>
               <div class="take-polish">
-                <form>
+                <form class="take-polish-w">
                 <input type="text" class="input" data-answer="próbować" (input)="takeFunction($event)">
-                <button class="btn btn-info" (click)="getLetter($event)" value="próbować">get a hint!</button>
+                <button class="button-hint" (click)="getLetter($event)" value="próbować">hint!</button>
               </form>
               </div>
             <div class="tsk">2</div>
@@ -320,9 +321,9 @@
               <p>friday</p>
             </div>
             <div class="take-polish">
-              <form>
+              <form class="take-polish-w">
               <input type="text" class="input" data-answer="piątek" (input)="takeFunction($event)">
-              <button class="btn btn-info" (click)="getLetter($event)" value="piątek">get a hint!</button>
+              <button class="button-hint" (click)="getLetter($event)" value="piątek">hint!</button>
             </form>
             </div>
             <div class="tsk">3</div>
@@ -333,9 +334,9 @@
               <p>music</p>
             </div>
             <div class="take-polish">
-              <form>
+              <form class="take-polish-w">
               <input type="text" class="input" data-answer="muzyka" (input)="takeFunction($event)">
-              <button class="btn btn-info" (click)="getLetter($event)" value="muzyka">get a hint!</button>
+              <button class="button-hint" (click)="getLetter($event)" value="muzyka">hint!</button>
             </form>
             </div>
             <div class="tsk">4</div>
@@ -346,9 +347,9 @@
               <p>to swim</p>
             </div>
             <div class="take-polish">
-              <form>
+              <form class="take-polish-w">
               <input type="text" class="input" data-answer="pływać" (input)="takeFunction($event)">
-              <button class="btn btn-info" (click)="getLetter($event)" value="pływać">get a hint!</button>
+              <button class="button-hint" (click)="getLetter($event)" value="pływać">hint!</button>
             </form>
             </div>
             <div class="tsk">5</div>
@@ -359,9 +360,9 @@
               <p>theatre</p>
             </div>
             <div class="take-polish">
-              <form>
+              <form class="take-polish-w">
               <input type="text" class="input" data-answer="teatr" (input)="takeFunction($event)">
-              <button class="btn btn-info" (click)="getLetter($event)" value="teatr">get a hint!</button>
+              <button class="button-hint" (click)="getLetter($event)" value="teatr">hint!</button>
             </form>
             </div>
             <div class="tsk">6</div>
@@ -372,17 +373,22 @@
               <p>talented</p>
             </div>
             <div class="take-polish">
-              <form>
+              <form class="take-polish-w">
               <input type="text" class="input" data-answer="uzdolniony" (input)="takeFunction($event)">
-              <button class="btn btn-info" (click)="getLetter($event)" value="uzdolniony">get a hint!</button>
+              <button class="button-hint" (click)="getLetter($event)" value="uzdolniony">hint!</button>
             </form>
             </div>
             <div class="tsk">7</div>
           </div>
-          <div class="plus-seven">+7</div>
+          <div #plusseven class="plus-seven">+7 points</div>
 </div>
 
-<div>{{Fourpoints}}</div>
+<div class="ex4-score">SCORE: {{Fourpoints}} POINTS</div>
+<p class="ex4-score-p">When you get the maximum of 49 points you will see the Congratulations Message</p>
+<div #ex4message class="ex4-best">JESTEŚ NAJLEPSZY!</div>
+<div>
+  <button (click)="restartEx4()">Restart</button>
+</div>
 
           </section>
         </tab>
