@@ -403,5 +403,16 @@ background-image: linear-gradient(237deg, rgba(255, 255, 255, 1) 0%, rgba(247, 2
   border: 1px dotted gray;
 }
 
+.btn-ex4-reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-ex4-reset button {
+  border: none;
+  padding: 10px 20px;
+}
+
 
 

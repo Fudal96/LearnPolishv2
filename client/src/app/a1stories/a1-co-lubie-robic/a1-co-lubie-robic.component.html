@@ -296,7 +296,7 @@
               </div>
               <div class="take-polish">
                 <form class="take-polish-w">
-                <input type="text" class="input" data-answer="malować" (input)="takeFunction($event)">
+                <input [(ngModel)]="resetex4" name="resetex4" type="text" class="input" data-answer="malować" (input)="takeFunction($event)">
                 <button class="button-hint" (click)="getLetter($event)" value="malować">hint!</button>
               </form>
               </div>
@@ -309,7 +309,7 @@
               </div>
               <div class="take-polish">
                 <form class="take-polish-w">
-                <input type="text" class="input" data-answer="próbować" (input)="takeFunction($event)">
+                <input [(ngModel)]="resetex4two" name="resetex4two" type="text" class="input" data-answer="próbować" (input)="takeFunction($event)">
                 <button class="button-hint" (click)="getLetter($event)" value="próbować">hint!</button>
               </form>
               </div>
@@ -322,7 +322,7 @@
             </div>
             <div class="take-polish">
               <form class="take-polish-w">
-              <input type="text" class="input" data-answer="piątek" (input)="takeFunction($event)">
+              <input [(ngModel)]="resetex4three" name="resetex4three" type="text" class="input" data-answer="piątek" (input)="takeFunction($event)">
               <button class="button-hint" (click)="getLetter($event)" value="piątek">hint!</button>
             </form>
             </div>
@@ -335,7 +335,7 @@
             </div>
             <div class="take-polish">
               <form class="take-polish-w">
-              <input type="text" class="input" data-answer="muzyka" (input)="takeFunction($event)">
+              <input [(ngModel)]="resetex4four" name="resetex4four" type="text" class="input" data-answer="muzyka" (input)="takeFunction($event)">
               <button class="button-hint" (click)="getLetter($event)" value="muzyka">hint!</button>
             </form>
             </div>
@@ -348,7 +348,7 @@
             </div>
             <div class="take-polish">
               <form class="take-polish-w">
-              <input type="text" class="input" data-answer="pływać" (input)="takeFunction($event)">
+              <input [(ngModel)]="resetex4five" name="resetex4five" type="text" class="input" data-answer="pływać" (input)="takeFunction($event)">
               <button class="button-hint" (click)="getLetter($event)" value="pływać">hint!</button>
             </form>
             </div>
@@ -361,7 +361,7 @@
             </div>
             <div class="take-polish">
               <form class="take-polish-w">
-              <input type="text" class="input" data-answer="teatr" (input)="takeFunction($event)">
+              <input [(ngModel)]="resetex4six" name="resetex4six" type="text" class="input" data-answer="teatr" (input)="takeFunction($event)">
               <button class="button-hint" (click)="getLetter($event)" value="teatr">hint!</button>
             </form>
             </div>
@@ -374,7 +374,7 @@
             </div>
             <div class="take-polish">
               <form class="take-polish-w">
-              <input type="text" class="input" data-answer="uzdolniony" (input)="takeFunction($event)">
+              <input [(ngModel)]="resetex4seven" name="resetex4seven" type="text" class="input" data-answer="uzdolniony" (input)="takeFunction($event)">
               <button class="button-hint" (click)="getLetter($event)" value="uzdolniony">hint!</button>
             </form>
             </div>
@@ -386,7 +386,7 @@
 <div class="ex4-score">SCORE: {{Fourpoints}} POINTS</div>
 <p class="ex4-score-p">When you get the maximum of 49 points you will see the Congratulations Message</p>
 <div #ex4message class="ex4-best">JESTEŚ NAJLEPSZY!</div>
-<div>
+<div class="btn-ex4-reset">
   <button (click)="restartEx4()">Restart</button>
 </div>
 

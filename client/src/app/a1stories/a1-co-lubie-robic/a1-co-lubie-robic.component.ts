@@ -8,10 +8,22 @@ import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } fro
 
 
 
+
+
 export class A1CoLubieRobicComponent implements OnInit{
+
+
+
 points = 0;
 answered = 0;
 Fourpoints = 0;
+resetex4: string | any;
+resetex4two: string | any;
+resetex4three: string | any;
+resetex4four: string | any;
+resetex4five: string | any;
+resetex4six: string | any;
+resetex4seven: string | any;
 @ViewChildren('reset, reset2, reset3, reset4, reset5', {read: ElementRef}) childComp:QueryList<ElementRef> | undefined
 
 
@@ -448,6 +460,7 @@ shuffleArray(matchArray: any) {
     const input = event.target.value
     const answer = event.target.dataset.answer
     const box = event.target
+    console.log(box)
     const plusSeven = this.plusSevn?.nativeElement
     if (input.toLowerCase() === answer) {
       box.classList.add('correct')
@@ -575,8 +588,24 @@ shuffleArray(matchArray: any) {
 
 }
 
+
+
 restartEx4() {
-  
+  let inputsHTML = document.getElementsByClassName("input");
+  let arr = Array.from(inputsHTML)
+  arr.forEach(el => {
+    (el as HTMLInputElement).disabled = false;
+    el.classList.remove('correct')
+      this.Fourpoints = 0;
+      this.resetex4 = '';
+      this.resetex4two = '';
+      this.resetex4three = '';
+      this.resetex4four = '';
+      this.resetex4five = '';
+      this.resetex4six = '';
+      this.resetex4seven = '';
+  })
+
 }
 }
 
