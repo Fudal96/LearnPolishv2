@@ -155,6 +155,11 @@ checkArrayByLabel = ['']
 
 matchedWords = 0;
 
+/////////////////////////////////////////////
+
+
+
+
 
 ngOnInit(): void {
   this.shuffleArray(this.matchArray);
@@ -607,6 +612,23 @@ restartEx4() {
   })
 
 }
+///////////////EXERCISE 5/////////////////////////////////////
+ex5() {
+  const ex5body = document.getElementById("ex5word")
+  const ex5word1 = ['d', '_', 'u', 'g', 'o'];
+
+  ex5word1.forEach(l => {
+   const button = document.createElement('button')
+    button.innerText = l;
+    ex5body?.appendChild(button)
+    console.log(l)
+    console.log(ex5word1)
+    
+  })
+
+}
+
+
 }
 
 
