@@ -616,46 +616,33 @@ restartEx4() {
 
 }
 ///////////////EXERCISE 5/////////////////////////////////////
-ex5word2 = ['d', '_', 'u', 'g', 'o'];
-ex5word2Letter = 'ł';
 
 currentIndex = 0;
 
 ex5wordQ = [
   {
     word: ['d', '_', 'u', 'g', 'o'],
-  },
-  {
-    word: ['q', 'q', 'q', 'q', 'q'],
-  },
-  {
-    word: ['w', 'o', 'k', '_', 'ł']
-  },
-  {
-    word: ['q', 'q', 'q', 'q', 'q'],
-  },
-  {
-    word: ['p', 'i', '_', 't', 'e', 'k']
-  },
-]
-
-ex5letterQ = [
-  {
     letter: 'ł'
   },
   {
-    letter: 'q'
-  },
-  {
+    word: ['w', 'o', 'k', '_', 'ł'],
     letter: 'ó'
   },
   {
-    letter: 'q'
+    word: ['p', 'i', '_', 't', 'e', 'k'],
+    letter: 'ą'
   },
   {
-    letter: 'ą'
-  }
+    word: ['j', 'e', '_', 'd', 'z', 'i', 'ć'],
+    letter: 'ź'
+  },
+  {
+    word: ['g', 'r', 'a', '_'],
+    letter: 'ć'
+  },
 ]
+
+
 
 ex5() {
 
@@ -696,24 +683,27 @@ ex5function(event: any) {
   let found = this.ex5wordQ[this.currentIndex].word.findIndex(el => el === '_')
   console.log(found)
 
-  this.ex5wordQ[found].word = value;
-  console.log(this.ex5word2)
 
   let wordHtml = this.ex5word?.nativeElement.children
   let word = [...wordHtml]
   console.log(word)
   word.forEach(el => {
-    if (el.innerText === '_') {
+    if (el.innerText === '_' && value == this.ex5wordQ[this.currentIndex].letter) {
       console.log(el)
       el.innerText = value
       console.log(el)
-      if (el.innerText === this.ex5letterQ[this.currentIndex].letter) {
+      if (value == this.ex5wordQ[this.currentIndex].letter) {
+        console.log('red')
+      }
+      if (el.innerText === this.ex5wordQ[this.currentIndex].letter) {
         console.log('correct')
-        this.currentIndex =+2
+        this.currentIndex++
         console.log(this.currentIndex)
         this.ex5()
+      } else if (this.currentIndex === 4){
+        return
       } else {
-        console.log('wrong')
+
       }
     }
   })
