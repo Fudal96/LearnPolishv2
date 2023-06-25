@@ -417,8 +417,35 @@ background-image: linear-gradient(237deg, rgba(255, 255, 255, 1) 0%, rgba(247, 2
 /////////////Exercise 5//////////////////////////////////////
 ///
 
-.ex5-word-line {
+.ex5-word {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.keyboard-wrapper {
+  margin-top: 30px;
+}
+
+.top-keys {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.down-keys {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.key {
+  border: 2px solid black;
+  background-color: green;
+  color: white;
+  font-size: 22px;
+  padding: 5px 15px;
+  margin-right: 1px;
+  cursor: pointer;
 }

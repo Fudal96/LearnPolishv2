@@ -50,6 +50,8 @@ resetex4seven: string | any;
 @ViewChild('ex4message') ex4Message: ElementRef | undefined;
 @ViewChild('plusseven') plusSevn: ElementRef | undefined;
 
+@ViewChild('ex5word') ex5word: ElementRef | undefined;
+
 
 
 sentence = [
@@ -163,6 +165,7 @@ matchedWords = 0;
 
 ngOnInit(): void {
   this.shuffleArray(this.matchArray);
+  this.ex5()
 }
 
 shuffleArray(matchArray: any) {
@@ -613,18 +616,109 @@ restartEx4() {
 
 }
 ///////////////EXERCISE 5/////////////////////////////////////
-ex5() {
-  const ex5body = document.getElementById("ex5word")
-  const ex5word1 = ['d', '_', 'u', 'g', 'o'];
+ex5word2 = ['d', '_', 'u', 'g', 'o'];
+ex5word2Letter = 'ł';
 
-  ex5word1.forEach(l => {
+currentIndex = 0;
+
+ex5wordQ = [
+  {
+    word: ['d', '_', 'u', 'g', 'o'],
+  },
+  {
+    word: ['q', 'q', 'q', 'q', 'q'],
+  },
+  {
+    word: ['w', 'o', 'k', '_', 'ł']
+  },
+  {
+    word: ['q', 'q', 'q', 'q', 'q'],
+  },
+  {
+    word: ['p', 'i', '_', 't', 'e', 'k']
+  },
+]
+
+ex5letterQ = [
+  {
+    letter: 'ł'
+  },
+  {
+    letter: 'q'
+  },
+  {
+    letter: 'ó'
+  },
+  {
+    letter: 'q'
+  },
+  {
+    letter: 'ą'
+  }
+]
+
+ex5() {
+
+  console.log(this.currentIndex)
+  console.log(this.ex5wordQ[this.currentIndex].word)
+  console.log(this.ex5wordQ[1].word)
+  console.log(this.ex5wordQ[2].word)
+
+  const ex5body = document.getElementById("ex5word")
+
+  while (ex5body?.lastElementChild) {
+    ex5body.removeChild(ex5body.lastElementChild)
+  }
+
+
+  this.ex5wordQ[this.currentIndex].word.forEach(l => {
+    //console.log(ex5body?.children)
+
    const button = document.createElement('button')
     button.innerText = l;
+    //button.className = 'ex5btn'
+    button.classList.add('ex5btn')
+    button.setAttribute("style", 'background-color:#A32724; padding:5px 15px; font-size:32px; color:white; font-weight:bold; border:none; margin-right:3px')
     ex5body?.appendChild(button)
-    console.log(l)
-    console.log(ex5word1)
-    
+
+
+
   })
+
+}
+
+ex5function(event: any) {
+
+  let value = event.target.innerText
+
+  console.log(value)
+
+  let found = this.ex5wordQ[this.currentIndex].word.findIndex(el => el === '_')
+  console.log(found)
+
+  this.ex5wordQ[found].word = value;
+  console.log(this.ex5word2)
+
+  let wordHtml = this.ex5word?.nativeElement.children
+  let word = [...wordHtml]
+  console.log(word)
+  word.forEach(el => {
+    if (el.innerText === '_') {
+      console.log(el)
+      el.innerText = value
+      console.log(el)
+      if (el.innerText === this.ex5letterQ[this.currentIndex].letter) {
+        console.log('correct')
+        this.currentIndex =+2
+        console.log(this.currentIndex)
+        this.ex5()
+      } else {
+        console.log('wrong')
+      }
+    }
+  })
+
+
 
 }
 

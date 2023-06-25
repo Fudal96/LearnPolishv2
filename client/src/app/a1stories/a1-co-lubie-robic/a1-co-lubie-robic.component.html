@@ -397,9 +397,27 @@
           <section class="exercise-two-container">
             <h5>Let's practice special Polish characters</h5>
         <div class="ex5-wrapper">
-          <div class="ex5-word-container">
-            <div class="ex5-word" id="ex5word">
-              <button (click)="ex5()">ex5</button>
+          <div class="ex5-word-container" id="ex5wordcontainer">
+            <div #ex5word class="ex5-word" id="ex5word">
+
+            </div>
+          </div>
+          <div class="keyboard-wrapper">
+            <div class="keyboard">
+              <div class="top-keys">
+                <button (click)="ex5function($event)" class="key">ą</button>
+                <button (click)="ex5function($event)" class="key">ć</button>
+                <button (click)="ex5function($event)" class="key">ę</button>
+                <button (click)="ex5function($event)" class="key">ł</button>
+
+              </div>
+              <div class="down-keys">
+                <button (click)="ex5function($event)" class="key">ń</button>
+                <button (click)="ex5function($event)" class="key">ó</button>
+                <button (click)="ex5function($event)" class="key">ś</button>
+                <button (click)="ex5function($event)" class="key">ż</button>
+                <button (click)="ex5function($event)" class="key">ź</button>
+              </div>
             </div>
           </div>
         </div>
