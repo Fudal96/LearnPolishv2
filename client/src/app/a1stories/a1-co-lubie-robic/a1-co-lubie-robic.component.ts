@@ -707,6 +707,11 @@ ex5function(event: any) {
           this.ex5()
         } else {
           console.log('end game')
+          const keysHtml = document.getElementsByClassName('key')
+          const keys = Array.from(keysHtml)
+          keys.forEach(key => {
+          key.classList.add('endgame')
+      })
         }
 
       }
