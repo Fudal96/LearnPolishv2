@@ -677,6 +677,7 @@ ex5() {
 ex5function(event: any) {
 
   let value = event.target.innerText
+  let wholevalue = event.target
 
   console.log(value)
 
@@ -689,23 +690,33 @@ ex5function(event: any) {
   console.log(word)
   word.forEach(el => {
     if (el.innerText === '_' && value == this.ex5wordQ[this.currentIndex].letter) {
-      console.log(el)
+      const keysHtml = document.getElementsByClassName('key')
+      const keys = Array.from(keysHtml)
+      keys.forEach(key => {
+        key.classList.remove('incorrect')
+      })
+      console.log(keys)
       el.innerText = value
       console.log(el)
-      if (value == this.ex5wordQ[this.currentIndex].letter) {
-        console.log('red')
-      }
+
       if (el.innerText === this.ex5wordQ[this.currentIndex].letter) {
         console.log('correct')
         this.currentIndex++
         console.log(this.currentIndex)
-        this.ex5()
-      } else if (this.currentIndex === 4){
-        return
-      } else {
+        if (this.currentIndex < 5) {
+          this.ex5()
+        } else {
+          console.log('end game')
+        }
 
       }
     }
+
+    if (el.innerText === '_' && value !== this.ex5wordQ[this.currentIndex].letter) {
+      console.log('red')
+      wholevalue.classList.add('incorrect')
+    }
+
   })
 
 
