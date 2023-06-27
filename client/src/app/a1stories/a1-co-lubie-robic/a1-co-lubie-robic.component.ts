@@ -642,15 +642,13 @@ ex5wordQ = [
   },
 ]
 
+ex5words = [
+  'długo', 'wokół', 'piątek', 'jeździć', 'grać'
+]
+
 
 
 ex5() {
-
-  console.log(this.currentIndex)
-  console.log(this.ex5wordQ[this.currentIndex].word)
-  console.log(this.ex5wordQ[1].word)
-  console.log(this.ex5wordQ[2].word)
-
   const ex5body = document.getElementById("ex5word")
 
   while (ex5body?.lastElementChild) {
@@ -659,11 +657,8 @@ ex5() {
 
 
   this.ex5wordQ[this.currentIndex].word.forEach(l => {
-    //console.log(ex5body?.children)
-
    const button = document.createElement('button')
     button.innerText = l;
-    //button.className = 'ex5btn'
     button.classList.add('ex5btn')
     button.setAttribute("style", 'background-color:#A32724; padding:5px 15px; font-size:32px; color:white; font-weight:bold; border:none; margin-right:3px')
     ex5body?.appendChild(button)
@@ -679,15 +674,11 @@ ex5function(event: any) {
   let value = event.target.innerText
   let wholevalue = event.target
 
-  console.log(value)
-
   let found = this.ex5wordQ[this.currentIndex].word.findIndex(el => el === '_')
-  console.log(found)
 
 
   let wordHtml = this.ex5word?.nativeElement.children
   let word = [...wordHtml]
-  console.log(word)
   word.forEach(el => {
     if (el.innerText === '_' && value == this.ex5wordQ[this.currentIndex].letter) {
       const keysHtml = document.getElementsByClassName('key')
@@ -695,22 +686,23 @@ ex5function(event: any) {
       keys.forEach(key => {
         key.classList.remove('incorrect')
       })
-      console.log(keys)
       el.innerText = value
-      console.log(el)
-
       if (el.innerText === this.ex5wordQ[this.currentIndex].letter) {
         console.log('correct')
         this.currentIndex++
-        console.log(this.currentIndex)
         if (this.currentIndex < 5) {
-          this.ex5()
+          setTimeout(() => {
+            this.ex5()
+          }, 1000)
+
         } else {
           console.log('end game')
           const keysHtml = document.getElementsByClassName('key')
           const keys = Array.from(keysHtml)
           keys.forEach(key => {
           key.classList.add('endgame')
+          const enddisplay = document.getElementById('endgame-display-container')
+          enddisplay?.classList.add('active')
       })
         }
 
@@ -727,6 +719,7 @@ ex5function(event: any) {
 
 
 }
+////////////////EXERCISE 6//////////////////////////////////////////////
 
 
 }

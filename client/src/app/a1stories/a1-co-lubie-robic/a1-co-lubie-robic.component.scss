@@ -416,6 +416,9 @@ background-image: linear-gradient(237deg, rgba(255, 255, 255, 1) 0%, rgba(247, 2
 
 /////////////Exercise 5//////////////////////////////////////
 ///
+.ex5-wrapper {
+  position: relative;
+}
 
 .ex5-word {
   display: flex;
@@ -454,4 +457,62 @@ background-image: linear-gradient(237deg, rgba(255, 255, 255, 1) 0%, rgba(247, 2
 }
 .key.endgame {
   pointer-events: none;
+}
+
+.endgame-display-container {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 90vw;
+  height: 250px;
+  padding: 5px;
+  background-color: white;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+-moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+}
+.endgame-display-container.active {
+  display: flex;
+}
+
+.endgame-display ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.endgame-display li {
+  list-style: none;
+  margin-bottom: 8px;
+  margin-right: 6px;
+  background-color: #A32724;
+  padding:5px 15px;
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  max-width: max-content;
+
+}
+
+
+.gratulacje {
+  color: green;
+  font-weight: bold;
+  font-size: 32px;
+  display: block;
+  animation-name: gratki;
+  animation-duration: 3s;
+}
+
+@keyframes gratki {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
