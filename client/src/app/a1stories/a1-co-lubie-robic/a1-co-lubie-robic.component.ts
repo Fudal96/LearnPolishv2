@@ -720,7 +720,7 @@ ex5function(event: any) {
 
 }
 ////////////////EXERCISE 6//////////////////////////////////////////////
-
+//const ex6Sentences = []
 
 }
 
