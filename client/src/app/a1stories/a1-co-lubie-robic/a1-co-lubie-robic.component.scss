@@ -524,3 +524,16 @@ box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   justify-content: center;
   align-items: center;
 }
+
+.ex6-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 94vw;
+  margin: auto;
+  gap: 6px;
+  margin-top: 15px;
+  padding: 5px;
+  font-size: 20px;
+}

@@ -166,6 +166,7 @@ matchedWords = 0;
 ngOnInit(): void {
   this.shuffleArray(this.matchArray);
   this.ex5()
+  this.ex6()
 }
 
 shuffleArray(matchArray: any) {
@@ -720,7 +721,31 @@ ex5function(event: any) {
 
 }
 ////////////////EXERCISE 6//////////////////////////////////////////////
-//const ex6Sentences = []
+ex6textcorrect = 'Mam na imię Rafał i bardzo lubię malować, składać origami i pływać. Lubię także jeździć na rowerze.';
+
+ex6text = ['Mam', 'na', '_', 'Rafał', 'i', 'bardzo', '_', 'malować', ',', 'składać', 'origami', 'i', '_', '.', 'Lubię', 'także', 'jeździć', 'na', '_', '.']
+
+ex6() {
+  this.ex6text.forEach(el => {
+    console.log(el)
+    if (el !== '_') {
+      const text = document.createElement('div')
+      text.innerText = el
+      const parent = document.getElementById('ex6text')
+      parent?.appendChild(text)
+    } else {
+      const input = document.createElement('input')
+      input.setAttribute("style", 'width:100px; padding:1px')
+      input.addEventListener('input', this.ex6checkword(event)!)
+      const parent = document.getElementById('ex6text')
+      parent?.appendChild(input)
+    }
+  })
+}
+
+ex6checkword(event: any) {
+console.log(event.target)
+}
 
 }
 
