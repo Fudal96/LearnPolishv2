@@ -721,12 +721,17 @@ ex5function(event: any) {
 
 }
 ////////////////EXERCISE 6//////////////////////////////////////////////
-ex6textcorrect = 'Mam na imię Rafał i bardzo lubię malować, składać origami i pływać. Lubię także jeździć na rowerze.';
+ex6textcorrect = ['Mam', 'na', 'imię', 'Rafał', 'i', 'bardzo', 'lubię', 'malować', ',', 'składać', 'origami', 'i', 'pływać', '.', 'Lubię', 'także', 'jeździć', 'na', 'rowerze', '.']
 
 ex6text = ['Mam', 'na', '_', 'Rafał', 'i', 'bardzo', '_', 'malować', ',', 'składać', 'origami', 'i', '_', '.', 'Lubię', 'także', 'jeździć', 'na', '_', '.']
 
+ex6textQ = ['Mam', 'na', 'one', 'Rafał', 'i', 'bardzo', '_', 'malować', ',', 'składać', 'origami', 'i', '_', '.', 'Lubię', 'także', 'jeździć', 'na', '_', '.']
+
+
+
 ex6() {
   this.ex6text.forEach(el => {
+    el.indexOf
     console.log(el)
     if (el !== '_') {
       const text = document.createElement('div')
@@ -736,7 +741,18 @@ ex6() {
     } else {
       const input = document.createElement('input')
       input.setAttribute("style", 'width:100px; padding:1px')
-      input.addEventListener('input', this.ex6checkword(event)!)
+      input.classList.add('ex6input')
+      input.id = 'ex6input';
+      input.addEventListener('input', (event) => {
+        console.log(this.ex6text)
+        const inp = (event.target as HTMLInputElement).value
+        console.log(inp)
+        const ex6textoneIndex = this.ex6textQ.findIndex(el => el === 'one')
+        console.log(ex6textoneIndex)
+        this.ex6textQ[ex6textoneIndex] = inp
+        console.log(this.ex6textQ)
+
+      })
       const parent = document.getElementById('ex6text')
       parent?.appendChild(input)
     }
@@ -744,7 +760,7 @@ ex6() {
 }
 
 ex6checkword(event: any) {
-console.log(event.target)
+console.log('wwwwwww')
 }
 
 }
