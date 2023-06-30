@@ -725,13 +725,12 @@ ex6textcorrect = ['Mam', 'na', 'imię', 'Rafał', 'i', 'bardzo', 'lubię', 'malo
 
 ex6text = ['Mam', 'na', '_', 'Rafał', 'i', 'bardzo', '_', 'malować', ',', 'składać', 'origami', 'i', '_', '.', 'Lubię', 'także', 'jeździć', 'na', '_', '.']
 
-ex6textQ = ['Mam', 'na', 'one', 'Rafał', 'i', 'bardzo', '_', 'malować', ',', 'składać', 'origami', 'i', '_', '.', 'Lubię', 'także', 'jeździć', 'na', '_', '.']
 
-
+ex6count = 0;
+correctOnes = 0;
 
 ex6() {
   this.ex6text.forEach(el => {
-    el.indexOf
     console.log(el)
     if (el !== '_') {
       const text = document.createElement('div')
@@ -740,21 +739,32 @@ ex6() {
       parent?.appendChild(text)
     } else {
       const input = document.createElement('input')
-      input.setAttribute("style", 'width:100px; padding:1px')
+      input.setAttribute("style", 'width:100px; padding:0px 5px')
       input.classList.add('ex6input')
-      input.id = 'ex6input';
+      input.tabIndex = this.ex6count++;
       input.addEventListener('input', (event) => {
         console.log(this.ex6text)
+        const inpT = (event.target as HTMLInputElement)
         const inp = (event.target as HTMLInputElement).value
+        const inpTab = (event.target as HTMLInputElement).tabIndex
+        console.log(inpT)
         console.log(inp)
-        const ex6textoneIndex = this.ex6textQ.findIndex(el => el === 'one')
-        console.log(ex6textoneIndex)
-        this.ex6textQ[ex6textoneIndex] = inp
-        console.log(this.ex6textQ)
+        console.log(inpTab)
+        if (inp === 'imię' && inpTab === 0 || inp === 'lubię' && inpTab === 1 || inp === 'pływać' && inpTab === 2 || inp === 'rowerze' && inpTab === 3) {
+          console.log('first match')
+          inpT.setAttribute("style", 'width:100px; padding:0px 5px; background-color:green; color:white;')
+          inpT.disabled = true;
+          this.correctOnes++
+          console.log(this.correctOnes)
+          if (this.correctOnes === 4) {
+            console.log('wiining action')
+          }
+        }
 
       })
       const parent = document.getElementById('ex6text')
       parent?.appendChild(input)
+      console.log(this.ex6text)
     }
   })
 }
