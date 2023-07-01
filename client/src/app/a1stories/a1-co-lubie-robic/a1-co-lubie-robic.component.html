@@ -436,7 +436,7 @@
          <!------------Exercise 6----------------------------->
          <tab heading="Exercise 6">
           <section class="exercise-two-container">
-            <h5>Listening practice. Type the missing word</h5>
+            <h5>Listening practice. Type the missing words</h5>
             <div class="audio-box">
               <audio controls>
                 <source src="./assets/audio.mp3" type="audio/mpeg">
@@ -445,7 +445,17 @@
             <div class="ex6-text-box">
               <div class="ex6-text" id="ex6text"></div>
             </div>
-            
+            <div class="ex6-answer">
+              <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Show/hide the answer
+</button>
+<hr>
+<div id="collapseBasic" [collapse]="isCollapsed">
+  <div class="well well-lg card card-block card-header">
+    Mam na imię Rafał i bardzo lubię malować, składać origami i pływać. Lubię także jeździć na rowerze.
+  </div>
+</div>
+            </div>
           </section>
         </tab>
     </tabset>

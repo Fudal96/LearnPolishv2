@@ -729,6 +729,8 @@ ex6text = ['Mam', 'na', '_', 'Rafał', 'i', 'bardzo', '_', 'malować', ',', 'sk�
 ex6count = 0;
 correctOnes = 0;
 
+isCollapsed = true;
+
 ex6() {
   this.ex6text.forEach(el => {
     console.log(el)

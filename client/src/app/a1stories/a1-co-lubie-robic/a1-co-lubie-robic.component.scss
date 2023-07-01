@@ -537,3 +537,11 @@ box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   padding: 5px;
   font-size: 20px;
 }
+
+.ex6-answer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 28px;
+}
