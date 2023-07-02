@@ -6,7 +6,30 @@
 
   <div class="user" *ngIf="(accountService.currentUser$ | async) as user">
     <div class="info">
-      <p class="text">Get lifetime access to all of the Premium Content for just</p>
+      <p class="text">You're just a click away from gaining access to all of our Premium Content</p>
+      <p class="text-small">Lifetime Access with just One Payment</p>
+      <div class="polish-premium-box">
+        <img src="/assets/pol-flag.svg">
+        <span>Premium Membership</span>
+      </div>
+      <div class="price-box">
+        <div class="amazing-value">
+          <div>Amazing Value!</div>
+          <div class="arrow"></div>
+        </div>
+        <div class="lifetime">
+          <div class="lifetime-left">
+            <h4>Lifetime</h4>
+            <div class="lifetime-price">
+            <span>$97.00</span>
+            <span>$34.00</span>
+          </div>
+          </div>
+          <div class="lifetime-right">
+            <button>Get started</button>
+          </div>
+        </div>
+      </div>
       <p class="price">$34.00</p>
     </div>
     <button class=" btn btn-lg btn-success get-premium-btn" (click)="test()" >Get Premium</button>

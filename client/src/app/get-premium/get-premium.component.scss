@@ -1,25 +1,101 @@
 .get-premium {
   height: 100vh;
+  background-color: rgba(176, 243, 252, 1);
+background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 249, 252, 1) 100%);
 }
 
-
+.user {
+  border: 2px solid black;
+  width: 90vw;
+  margin: auto;
+}
 .text {
+  padding: 10px;
   margin-top: 20px;
-  font-size: 26px;
-  font-weight: 550;
+  font-size: 28px;
+  font-weight: 650;
   text-align: center;
+  color: rgb(13, 0, 87);
 }
-
-.price {
-  font-size: 56px;
+.text-small {
   text-align: center;
-  color: rgb(65, 5, 206);
+  font-size: 18px;
 }
-
-.get-premium-btn {
+.polish-premium-box {
+  width: 70%;
+  height: 50px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  margin: auto;
+  background-color: white;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+.polish-premium-box img {
+  height: 40px;
+}
+.polish-premium-box span {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.price-box {
+  position: relative;
+  width: 90%;
+  height: 150px;
+  border-radius: 4px;
+  margin: auto;
+  background-color: white;
+  display: grid;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.amazing-value {
+  background-color: #f5086a;
+  height: 45px;
+  width: fit-content;
+  position: absolute;
+  top: -20px;
+  left: 40%;
+  color: white;
+  padding: 9px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.amazing-value div {
+  position: relative;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 3px;
+  left: 10%;
+  transform: rotate(45deg);
+  background-color: #f5086a;
+}
+
+.lifetime {
+  display: flex;
+  align-items: center;
+  gap: 55px;
+}
+
+.lifetime-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lifetime-right button {
+  background-color: #f5086a;
+  padding: 10px 14px;
   border: none;
-  margin:auto;
+  font-weight: 700;
+  
 }
