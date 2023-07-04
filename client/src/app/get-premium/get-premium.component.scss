@@ -1,16 +1,21 @@
-.get-premium {
-  height: 100vh;
-  background-color: rgba(176, 243, 252, 1);
-background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 249, 252, 1) 100%);
-}
 
+
+.get-premium {
+  margin-bottom: -50px;
+  height: 100vh;
+background-color: rgba(240, 242, 253, 1);
+background-image: linear-gradient(89deg, rgba(240, 242, 253, 1) 0%, rgba(241, 243, 253, 1) 100%);
+}
+//#F0F2FD
+//#F1F3FD
 .user {
   width: 90vw;
   margin: auto;
 }
+
 .text {
-  padding: 10px;
-  margin-top: 20px;
+  padding: 30px;
+  //margin-top: 20px;
   font-size: 28px;
   font-weight: 650;
   text-align: center;
@@ -19,6 +24,8 @@ background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 24
 .text-small {
   text-align: center;
   font-size: 18px;
+  margin-top: -40px;
+  margin-bottom: 35px;
 }
 .polish-premium-box {
   width: 70%;
@@ -30,13 +37,13 @@ background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 24
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 40px;
+  margin-bottom: 56px;
 }
 .polish-premium-box img {
-  height: 40px;
+  height: 38px;
 }
 .polish-premium-box span {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
 }
 
@@ -46,16 +53,28 @@ background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 24
   height: 165px;
   border-radius: 7px;
   margin: auto;
-  background-color: white;
+background-color: rgba(255, 255, 255, 1);
+background-image: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(249, 249, 249, 1) 100%);
   display: grid;
   align-items: center;
   justify-content: space-around;
 }
+.price-box::before {
+  position: absolute;
+  content: "Access to All the Premium Content";
+  bottom: 8px;
+  left: 20px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+
 
 .amazing-value {
   background-color: #f5086a;
-  height: 45px;
+  height: 35px;
   width: 27vw;
+  min-width: 108px;
   position: absolute;
   top: -20px;
   left: 60%;
@@ -73,10 +92,10 @@ background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 24
 
 .amazing-value div::before {
   content: "";
-  width: 20px;
-  height: 20px;
+  width: 11px;
+  height: 11px;
   position: absolute;
-  bottom: -60%;
+  bottom: -44%;
   left: 10%;
   transform: rotate(45deg);
   background-color: #f5086a;
@@ -86,9 +105,7 @@ background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 24
   width: 75vw;
   display: flex;
   align-items: center;
-  //gap: 30%;
   justify-content: space-between;
-  border: 1px solid black;
   margin-top: 24px;
   margin-left: auto;
   margin-right: auto;
@@ -99,26 +116,35 @@ background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 24
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid green;
   margin-top: -10%;
 }
 
+.lifetime-right {
+  margin-bottom: 23px;
+  margin-right: 30px;
+}
+
 .lifetime-right button {
-  width: 40vw;
+  width: 33vw;
+  min-width: 110px;
   background-color: #f5086a;
   color: white;
-  padding: 9px 18px;
+  padding: 12px 1px;
   border: none;
+  border-radius: 4px;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 18px;
+}
+.lifetime-left {
+  margin-bottom: 20px;
 }
 .lifetime-left h4 {
-  font-size: 34px;
+  font-size: 26px;
 }
 
 .previous-price {
   color:#f5086a;
-  font-size: 24px;
+  font-size: 26px;
   position: relative;
 }
 .previous-price::before {
@@ -133,6 +159,36 @@ background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 24
 }
 .current-price {
   font-size: 26px;
-  margin-top: -4%;
+  margin-top: -9%;
 
+}
+
+
+
+
+@media only screen and (max-width: 372px) {
+  .polish-premium-box img {
+    height: 34px;
+  }
+  .polish-premium-box span {
+    font-size: 16px;
+  }
+  .lifetime-right button {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 341px) {
+  .polish-premium-box img {
+    height: 32px;
+  }
+  .polish-premium-box span {
+    font-size: 14px;
+  }
+  .text {
+    font-size: 24px;
+  }
+  .text-small {
+    font-size: 16px;
+  }
 }
