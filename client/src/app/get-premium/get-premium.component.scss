@@ -5,7 +5,6 @@ background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 24
 }
 
 .user {
-  border: 2px solid black;
   width: 90vw;
   margin: auto;
 }
@@ -44,8 +43,8 @@ background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 24
 .price-box {
   position: relative;
   width: 90%;
-  height: 150px;
-  border-radius: 4px;
+  height: 165px;
+  border-radius: 7px;
   margin: auto;
   background-color: white;
   display: grid;
@@ -56,33 +55,43 @@ background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 24
 .amazing-value {
   background-color: #f5086a;
   height: 45px;
-  width: fit-content;
+  width: 27vw;
   position: absolute;
   top: -20px;
-  left: 40%;
+  left: 60%;
   color: white;
-  padding: 9px;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 .amazing-value div {
   position: relative;
 }
 
-.arrow {
+.amazing-value div::before {
+  content: "";
   width: 20px;
   height: 20px;
   position: absolute;
-  bottom: 3px;
+  bottom: -60%;
   left: 10%;
   transform: rotate(45deg);
   background-color: #f5086a;
 }
 
 .lifetime {
+  width: 75vw;
   display: flex;
   align-items: center;
-  gap: 55px;
+  //gap: 30%;
+  justify-content: space-between;
+  border: 1px solid black;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .lifetime-price {
@@ -90,12 +99,40 @@ background-image: linear-gradient(90deg, rgba(176, 243, 252, 1) 0%, rgba(211, 24
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: 1px solid green;
+  margin-top: -10%;
 }
 
 .lifetime-right button {
+  width: 40vw;
   background-color: #f5086a;
-  padding: 10px 14px;
+  color: white;
+  padding: 9px 18px;
   border: none;
   font-weight: 700;
-  
+  font-size: 24px;
+}
+.lifetime-left h4 {
+  font-size: 34px;
+}
+
+.previous-price {
+  color:#f5086a;
+  font-size: 24px;
+  position: relative;
+}
+.previous-price::before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  background-color: #f5086a;
+  transform: translateY(-50%);
+}
+.current-price {
+  font-size: 26px;
+  margin-top: -4%;
+
 }
