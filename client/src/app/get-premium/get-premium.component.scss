@@ -2,7 +2,7 @@
 
 .get-premium {
   margin-bottom: -50px;
-  height: 100vh;
+ // height: 100vh;
 background-color: rgba(240, 242, 253, 1);
 background-image: linear-gradient(89deg, rgba(240, 242, 253, 1) 0%, rgba(241, 243, 253, 1) 100%);
 }
@@ -162,19 +162,68 @@ background-image: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(249, 24
   margin-top: -9%;
 
 }
+///////////////////////SECURE///////////////////////////////
+.secure-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.secure img {
+  height: 48px;
+  filter: invert(21%) sepia(80%) saturate(6712%) hue-rotate(326deg) brightness(94%) contrast(104%);
+}
+.sec-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sec-pay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sec-stripe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.sec-stripe-acc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 60px;
+}
 
 
 
-
-@media only screen and (max-width: 372px) {
+@media only screen and (max-width: 390px) {
   .polish-premium-box img {
     height: 34px;
   }
   .polish-premium-box span {
     font-size: 16px;
   }
+  .text {
+    font-size: 26px;
+  }
+  .text-small {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (max-width: 372px) {
+
   .lifetime-right button {
     font-size: 18px;
+  }
+  .lifetime-right {
+
+    margin-right: 10px;
   }
 }
 
@@ -192,3 +241,11 @@ background-image: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(249, 24
     font-size: 16px;
   }
 }
+
+@media only screen and (max-width: 322px) {
+  .price-box::before {
+    font-size: 12px;
+  }
+}
+
+
