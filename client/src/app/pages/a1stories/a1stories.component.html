@@ -1,4 +1,5 @@
 <div class="container">
+
   <div class="story">
   <div class="card col-12" routerLink="/a1-co-lubie-robic">
     <div class="card-img-wrapper d-flex">
@@ -49,6 +50,68 @@
       </div>
     </div>
   </div>
+</div>
+
+
+<div class="ex6-answer">
+
+<div id="collapseBasic" [collapse]="isCollapsed">
+
+  <div class="story">
+    <div class="card col-12" routerLink="/a1-spacer-z-psem">
+      <div class="card-img-wrapper d-flex">
+        <img src="https://res.cloudinary.com/dyyonpr5j/image/upload/v1681563270/spacerzpsem_ejdq2o.jpg">
+        <div class="card-body">
+          <div class="title">
+        <h3>Spacer z psem</h3>
+        <p>Marta wyprowadza psa na spacer</p>
+      </div>
+      <div class="fp">
+        <span>PREMIUM</span>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="story">
+    <div class="card col-12" routerLink="/a1-spacer-z-psem">
+      <div class="card-img-wrapper d-flex">
+        <img src="https://res.cloudinary.com/dyyonpr5j/image/upload/v1681563270/spacerzpsem_ejdq2o.jpg">
+        <div class="card-body">
+          <div class="title">
+        <h3>Spacer z psem</h3>
+        <p>Marta wyprowadza psa na spacer</p>
+      </div>
+      <div class="fp">
+        <span>PREMIUM</span>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="show-more-btn">
+
+<button  *ngIf="isCollapsed" type="button" class="btn show-all-stories-btn" (click)="isCollapsed = !isCollapsed"
+[attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic" >
+ <img class="show-arrow" src="/assets/arrow-down.svg">
+<span>
+Show all stories
+</span>
+</button>
+
+<button  *ngIf="!isCollapsed" type="button" class="btn show-all-stories-btn" (click)="isCollapsed = !isCollapsed"
+[attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+ <img class="show-arrow rotate" src="/assets/arrow-down.svg">
+<span>
+Show less stories
+</span>
+</button>
+
 </div>
 
 

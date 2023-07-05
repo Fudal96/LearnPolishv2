@@ -19,6 +19,9 @@
 
 .nav-mob {
   height: 80px;
+  -webkit-box-shadow: 3px 8px 5px -9px rgba(66, 68, 90, 1);
+-moz-box-shadow: 3px 8px 5px -9px rgba(66, 68, 90, 1);
+box-shadow: 3px 8px 5px -9px rgba(66, 68, 90, 1);
 }
 
 .btn-nav-mob {
@@ -40,8 +43,10 @@ button i {
 }
 
 .card-header {
-  background-color: rgb(235, 233, 233);
-  color: black;
+ // background-color: rgb(235, 233, 233);
+  //color: black;
+  background-color: #f5086a;
+  color: white;
   font-size: 18px;
   font-weight: bold;
   margin-left: 3px;

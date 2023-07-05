@@ -59,6 +59,25 @@ a {
   right: 0;
 }
 
+.show-more-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-all-stories-btn {
+  background-color: #f5086a;
+  color: white;
+}
+.show-all-stories-btn img {
+  height: 32px;
+  filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(315deg) brightness(106%) contrast(101%);
+}
+
+.show-arrow.rotate {
+  transform: rotate(180deg);
+}
+
 @media only screen and (max-width: 390px) {
   .fp {
     font-size: 11px;
