@@ -64,11 +64,11 @@
 
 
 
-   <nav class="bg-danger nav-mob">
+   <nav class="nav-mob">
     <div class="container-mobile">
 
       <div class="left" *ngIf="(accountService.currentUser$ | async) as user">
-        <button type="button" class="btn btn-danger btn-nav-mob" (click)="isCollapsed = !isCollapsed"
+        <button type="button" class="btn btn-nav-mob" (click)="isCollapsed = !isCollapsed"
         [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
         <i class="fa fa-bars"></i>
       </button>
@@ -79,13 +79,17 @@
       </div>
     </div>
 
-      <div class="right" *ngIf="(accountService.currentUser$ | async) as user"><a class="navbar-brand" routerLink="/"><i>LearningPolish</i></a></div>
+      <div class="right" *ngIf="(accountService.currentUser$ | async) as user"><a class="navbar-brand" routerLink="/">
+        <img src="/assets/P.png">
+      </a></div>
 
 
 
   <div *ngIf="!(accountService.currentUser$ | async)" class="login-mobile">
 <div class="mobile-nav-container">
-    <div><a class="navbar-brand" routerLink="/"><i>LearningPolish</i></a></div>
+    <div><a class="navbar-brand" routerLink="/">
+      <img src="/assets/P.png">
+    </a></div>
 
         <div><button type="button" class="btn btn-muted" (click)="openModal(template)"><i class="fa fa-user"></i></button></div>
       </div>
