@@ -62,15 +62,23 @@ h1 {
   align-items: center;
   margin-top: 40px;
 }
+.secure {
+  margin-bottom: 30px;
+}
 
 .secure img {
-  height: 150px;
+  height: 220px;
+  width: 83vw;
+  max-width: 380px;
+  border-radius: 10px;
+  border: 1px solid rgb(216, 209, 209);
  // filter: invert(21%) sepia(80%) saturate(6712%) hue-rotate(326deg) brightness(94%) contrast(104%);
 }
 .sec-img {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 13px;
 }
 .sec-pay {
   display: flex;
@@ -82,7 +90,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 415px;
+  //max-width: 415px;
 }
 .sec-stripe-acc {
   display: flex;
