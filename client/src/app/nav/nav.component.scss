@@ -17,8 +17,18 @@
   width: 100vw;
 }
 
-.nav-mob {
+nav {
+  border: 1px solid red;
   height: 80px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  //background-color: white;
+  background-color: transparent;
+  z-index: 1000;
+}
+
+.nav-mob {
   -webkit-box-shadow: 3px 8px 5px -9px rgba(66, 68, 90, 1);
 -moz-box-shadow: 3px 8px 5px -9px rgba(66, 68, 90, 1);
 box-shadow: 3px 8px 5px -9px rgba(66, 68, 90, 1);
